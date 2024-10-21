@@ -1,0 +1,60 @@
+.text-field {
+    -fx-font-size: 16px;
+    -fx-padding: 10px;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+    -fx-border-color: white;
+    -fx-border-width: 1px;
+}
+.form-background {
+    -fx-background-color: rgba(173, 216, 230, 0.7);
+    -fx-background-radius: 15; /* Bo góc */
+    -fx-border-radius: 15; /* Bo góc viền */
+}
+.form-container {
+    -fx-background-color: rgb(255, 255, 255);
+    -fx-background-radius: 15; /* Bo góc */
+    -fx-border-radius: 15; /* Bo góc viền */
+}
+.vbox-rounded {
+    -fx-background-color: rgb(255, 255, 255);
+    -fx-background-radius: 15; /* Bo góc 15px */
+    -fx-border-radius: 15; /* Bo góc cho viền */
+}
+
+.textfield-search {
+    -fx-background-color: #ffffff; /* Nền trắng */
+    -fx-text-fill: black; /* Màu chữ đen */
+    -fx-font-size: 14px;
+    -fx-padding: 5px 10px;
+    -fx-background-radius: 15; /* Bo góc */
+    -fx-border-radius: 15;
+    -fx-border-color: #e1e1e1; /* Màu viền nhạt */
+    -fx-border-width: 1px;
+}
+
+.button-search {
+    -fx-background-color: #ED1C24; /* Màu nền đỏ đồng bộ */
+    -fx-text-fill: white; /* Màu chữ trắng */
+    -fx-font-size: 14px;
+    -fx-padding: 5px 15px;
+    -fx-background-radius: 15; /* Bo góc */
+    -fx-border-radius: 15;
+    -fx-border-color: transparent; /* Xóa viền */
+}
+.top-product { /* Màu nền đen */
+    -fx-background-color: #ffffff;
+    -fx-padding: 10; /* Khoảng cách bên trong */
+    -fx-border-color: #000000; /* Màu viền đen */
+    -fx-border-width: 1; /* Độ dày viền */
+    -fx-border-radius: 7; /* Bo góc viền */
+    -fx-background-radius: 5; /* Bo góc nền */
+}
+.button-no-border {
+    -fx-background-color: transparent; /* Nền trong suốt */
+    -fx-border-color: transparent; /* Màu viền trong suốt */
+    -fx-border-width: 0; /* Độ rộng viền bằng 0 */
+}
+.button-no-border:hover {
+    background-color: #1C86EE; /* Màu xanh dương nhạt hơn khi trỏ chuột */
+}
