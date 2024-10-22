@@ -19,31 +19,36 @@
     <left>
         <VBox prefHeight="699.0" prefWidth="137.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
             <children>
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="223.0" mnemonicParsing="false" onAction="#showHome" prefHeight="66.0" prefWidth="137.0" style="-fx-background-color: white;" text="Trang chủ">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
                 <TitledPane alignment="CENTER" animated="false" style="-fx-background-color: white;" text="Danh Mục">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
                             <children>
-                                <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" styleClass="button-no-border" text="Iphone">
+                                <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showIphone" prefHeight="25.0" prefWidth="110.0" styleClass="button-no-border" text="Iphone">
                                     <font>
                                         <Font size="13.0" />
                                     </font>
                                 </Button>
-                                <Button layoutX="14.0" layoutY="50.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" styleClass="button-no-border" text="SamSung">
+                                <Button layoutX="14.0" layoutY="50.0" mnemonicParsing="false" onAction="#showSamSung" prefHeight="25.0" prefWidth="110.0" styleClass="button-no-border" text="SamSung">
                                     <font>
                                         <Font size="13.0" />
                                     </font>
                                 </Button>
-                                <Button layoutX="14.0" layoutY="85.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" styleClass="button-no-border" text="Xiaomi">
+                                <Button layoutX="14.0" layoutY="85.0" mnemonicParsing="false" onAction="#showXiaomi" prefHeight="25.0" prefWidth="110.0" styleClass="button-no-border" text="Xiaomi">
                                     <font>
                                         <Font size="13.0" />
                                     </font>
                                 </Button>
-                                <Button layoutX="14.0" layoutY="118.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" styleClass="button-no-border" text="Oppo">
+                                <Button layoutX="14.0" layoutY="118.0" mnemonicParsing="false" onAction="#showOppo" prefHeight="25.0" prefWidth="110.0" styleClass="button-no-border" text="Oppo">
                                     <font>
                                         <Font size="13.0" />
                                     </font>
                                 </Button>
-                                <Button layoutX="14.0" layoutY="152.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" styleClass="button-no-border" text="Nokia">
+                                <Button layoutX="14.0" layoutY="152.0" mnemonicParsing="false" onAction="#showNokia" prefHeight="25.0" prefWidth="110.0" styleClass="button-no-border" text="Nokia">
                                     <font>
                                         <Font size="13.0" />
                                     </font>
@@ -81,9 +86,9 @@
                                 <Image url="@../Image/Banner.png" />
                             </image>
                         </ImageView>
-                        <Label alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="381.0" text="TECHNOLOGY 24/7">
+                        <Label alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="381.0" text="Công nghệ  24/7">
                             <font>
-                                <Font name="Arial Black" size="16.0" />
+                                <Font name="Arial Bold" size="25.0" />
                             </font>
                         </Label>
                     </children>
@@ -93,13 +98,13 @@
                 </HBox>
                 <HBox alignment="CENTER" maxHeight="30.0" maxWidth="800.0" prefHeight="30.0" prefWidth="439.0">
                     <children>
-                        <TextField fx:id="searchTextFile" maxHeight="30.0" prefHeight="30.0" prefWidth="250.0" promptText="Search for products" styleClass="textfield-search" />
-                        <Button contentDisplay="TEXT_ONLY" maxHeight="53.0" mnemonicParsing="false" onAction="#searchProduct" prefHeight="53.0" prefWidth="80.0" styleClass="button-search" text="Search" />
+                        <TextField fx:id="searchTextFile" maxHeight="30.0" prefHeight="30.0" prefWidth="250.0" promptText="Tìm kiếm sản phẩm" styleClass="textfield-search" />
+                        <Button contentDisplay="TEXT_ONLY" maxHeight="53.0" mnemonicParsing="false" onAction="#searchProduct" prefHeight="30.0" prefWidth="92.0" styleClass="button-search" text="Tìm kiếm" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER_RIGHT" maxHeight="60.0" prefHeight="60.0" prefWidth="419.0">
                     <children>
-                        <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="55.0" fitWidth="55.0" onMouseClicked="#showCart" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../Image/cart.jpg" />
                             </image>
@@ -107,7 +112,7 @@
                                 <Insets right="50.0" />
                             </HBox.margin>
                         </ImageView>
-                        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="211.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="211.0" layoutY="15.0" onMouseClicked="#showAccount" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../Image/DonHang.jpg" />
                             </image>
@@ -115,7 +120,7 @@
                                 <Insets right="50.0" />
                             </HBox.margin>
                         </ImageView>
-                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#showAccount" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../Image/avt.jpg" />
                             </image>
@@ -129,52 +134,61 @@
         </HBox>
     </top>
     <center>
-        <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #F5F5F5" BorderPane.alignment="CENTER">
+        <ScrollPane prefHeight="699.0" prefWidth="1282.0" style="-fx-background-color: #F5F5F5" BorderPane.alignment="CENTER">
             <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="2000.0" prefWidth="1181.0">
-                    <children>
-                        <VBox layoutX="14.0" layoutY="14.0" prefHeight="300.0" prefWidth="1113.0" style="-fx-background-color: white;">
-                            <children>
-                                <Label prefHeight="45.0" prefWidth="587.0" text="Sản Phẩm Bán Chạy">
-                                    <font>
-                                        <Font name="Arial" size="24.0" />
-                                    </font>
-                                    <graphic>
-                                        <ImageView fitHeight="45.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@../Image/hotSale.jpg" />
-                                            </image>
-                                        </ImageView>
-                                    </graphic>
-                                </Label>
-                                <VBox prefHeight="257.0" prefWidth="1101.0">
-                                    <children>
-                                        <FlowPane fx:id="topProduct" alignment="CENTER" prefHeight="200.0" prefWidth="200.0" />
-                                    </children>
-                                </VBox>
-                            </children></VBox>
-                  <VBox layoutX="14.0" layoutY="346.0" prefHeight="300.0" prefWidth="1113.0" style="-fx-background-color: white;">
-                     <children>
-                        <Label prefHeight="45.0" prefWidth="587.0" text="Sản phẩm nổi bật">
-                           <font>
-                              <Font name="Arial" size="24.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="45.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../Image/loa.jpg" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Label>
-                        <VBox prefHeight="257.0" prefWidth="1101.0">
+            <FlowPane fx:id="showProduct" prefHeight="3000.0" prefWidth="1113.0">
+               <children>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="2000.0" prefWidth="1181.0">
+                          <children>
+                              <VBox layoutX="14.0" layoutY="14.0" prefHeight="300.0" prefWidth="1113.0" style="-fx-background-color: white;">
+                                  <children>
+                                      <Label prefHeight="45.0" prefWidth="587.0" text="Sản Phẩm Bán Chạy">
+                                          <font>
+                                              <Font name="Arial" size="24.0" />
+                                          </font>
+                                          <graphic>
+                                              <ImageView fitHeight="45.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                                                  <image>
+                                                      <Image url="@../Image/hotSale.jpg" />
+                                                  </image>
+                                              </ImageView>
+                                          </graphic>
+                                      </Label>
+                                      <VBox prefHeight="257.0" prefWidth="1101.0">
+                                          <children>
+                                              <FlowPane fx:id="topProduct" alignment="CENTER" prefHeight="200.0" prefWidth="200.0" />
+                                          </children>
+                                      </VBox>
+                                  </children>
+                        </VBox>
+                        <VBox layoutX="14.0" layoutY="346.0" prefHeight="300.0" prefWidth="1113.0" style="-fx-background-color: white;">
                            <children>
-                              <FlowPane fx:id="randomProduct" alignment="CENTER" prefHeight="200.0" prefWidth="200.0" />
+                              <Label prefHeight="45.0" prefWidth="587.0" text="Sản phẩm nổi bật">
+                                 <font>
+                                    <Font name="Arial" size="24.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="45.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Image/loa.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Label>
+                              <VBox prefHeight="257.0" prefWidth="1101.0">
+                                 <children>
+                                    <FlowPane fx:id="randomProduct" alignment="CENTER" prefHeight="200.0" prefWidth="200.0" />
+                                 </children>
+                              </VBox>
                            </children>
                         </VBox>
-                     </children>
-                  </VBox>
-                    </children></AnchorPane>
+                          </children>
+                  </AnchorPane>
+               </children>
+               <padding>
+                  <Insets left="30.0" top="30.0" />
+               </padding>
+            </FlowPane>
             </content>
         </ScrollPane>
     </center>

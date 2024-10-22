@@ -37,27 +37,23 @@ public class SignController {
         String phoneNumber = this.phoneNumber.getText();
 
         if(checkAccount(username)){
-            showAlert("Username is already taken!");
+            showAlert("Tên đăng nhập đã tồn tại.");
         }else if(username.length() <6 ){
-            showAlert("Username is too short. Minimum 6 characters");
+            showAlert("Tên đăng nhập quá ngắn . Tên đăng nhập tối thiểu gồm 6 kí tự.");
         }else if(password.length() <6 ){
-            showAlert("Password too short. Minimum 8 characters");
+            showAlert("Mật khẩu quá ngắn . Mật khẩu tối thiểu 8 kí tự.");
         }else if(!isValidAddress(address)){
-            showAlert("Invalid address");
+            showAlert("Địa chỉ không hợp lệ.");
         }else if(!isValidPhoneNumber(phoneNumber)) {
-            showAlert("Invalid phonenumber. Phonenumber must be 10 digits and start with 0");
+            showAlert("Số điện thoại không hợp tệ . Số điện thoại phải gồm 10 chữ số và bắt đầu bằng số 0.");
         }else if(!rePassword.equals(password) ){
-            showAlert("Passwords do not match");
+            showAlert("Mật khẩu không trùng khớp.");
         }else if(username.isEmpty()||password.isEmpty()||rePassword.isEmpty()||address.isEmpty()||phoneNumber.isEmpty()){
-            showAlert("Cannot be left empty");
+            showAlert("Không được để trống.");
         }else {
             saveUserNew(username,password,address,phoneNumber);
-            showAlert("SignController up successful");
-            try {
-                Main.changeScene("LoginController.fxml");
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
+            showAlert("Đăng ký thành công. Mời đăng nhập lại.");
+            showLogin();
         }
     }
     private void saveUserNew(String username , String password, String address, String phoneNumber) throws SQLException {
@@ -87,9 +83,9 @@ public class SignController {
         }
     }
 
-    public void showLogin(ActionEvent actionEvent) {
+    public void showLogin() {
         try {
-            Main.changeScene("LoginController.fxml");
+            Main.changeScene("Login.fxml");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
