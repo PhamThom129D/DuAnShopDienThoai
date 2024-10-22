@@ -32,16 +32,16 @@ public class LoginController {
             System.out.println("Người dùng hiện tại : " + LoggedInUser.showLoggedInUser());
             switch(role) {
                 case "Admin":
-                    showAlert("Hello Admin " + username );
+                    showAlert("Xin chào Admin " + username );
                     Main.changeScene("HomeAdmin.fxml");
                     break;
                 case "User":
-                    showAlert("Hello User " + username );
+                    showAlert("Xin chào nhân viên " + username );
                     Main.changeScene("HomeUser.fxml");
                     break;
                 case "Customer":
-                    showAlert("Welcom " + username + " to join us!" );
-                    Main.changeScene("HomeCustomerController.fxml");
+                    showAlert("Chào mừng " + username + " tham gia mua sắm!" );
+                    Main.changeScene("HomeCustomer.fxml");
                     break;
 
             }
@@ -63,7 +63,7 @@ public class LoginController {
                 boolean state = rs.getBoolean("state");
                 int userID = rs.getInt("userID");
                 if(!state){
-                    showAlert("Account Block!");
+                    showAlert("Tài khoản đã bị khóa!");
                     return null;
                 }
                 LoggedInUser.login(userID, username);
@@ -77,11 +77,11 @@ public class LoginController {
     }
 
     public void showSignUp(ActionEvent actionEvent) throws IOException {
-        Main.changeScene("SignController.fxml");
+        Main.changeScene("Sign.fxml");
     }
 
     public void forgetPassword(ActionEvent actionEvent) {
-        showAlert("Wait for verification email");
+        showAlert("Chờ email phản hồi");
     }
     private void showAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);

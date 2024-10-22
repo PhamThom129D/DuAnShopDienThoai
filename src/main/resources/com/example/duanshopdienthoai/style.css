@@ -16,11 +16,7 @@
     -fx-background-radius: 15; /* Bo góc */
     -fx-border-radius: 15; /* Bo góc viền */
 }
-.vbox-rounded {
-    -fx-background-color: rgb(255, 255, 255);
-    -fx-background-radius: 15; /* Bo góc 15px */
-    -fx-border-radius: 15; /* Bo góc cho viền */
-}
+
 
 .textfield-search {
     -fx-background-color: #ffffff; /* Nền trắng */
