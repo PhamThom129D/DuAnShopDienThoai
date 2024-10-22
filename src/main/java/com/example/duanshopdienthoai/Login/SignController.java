@@ -13,7 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Sign {
+public class SignController {
     @FXML
     private TextField username;
     @FXML
@@ -52,9 +52,9 @@ public class Sign {
             showAlert("Cannot be left empty");
         }else {
             saveUserNew(username,password,address,phoneNumber);
-            showAlert("Sign up successful");
+            showAlert("SignController up successful");
             try {
-                Main.changeScene("Login.fxml");
+                Main.changeScene("LoginController.fxml");
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -89,7 +89,7 @@ public class Sign {
 
     public void showLogin(ActionEvent actionEvent) {
         try {
-            Main.changeScene("Login.fxml");
+            Main.changeScene("LoginController.fxml");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
