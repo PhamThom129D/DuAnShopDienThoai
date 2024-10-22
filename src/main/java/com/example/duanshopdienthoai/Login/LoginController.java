@@ -1,6 +1,7 @@
 package com.example.duanshopdienthoai.Login;
 
 import com.example.duanshopdienthoai.DatabaseConnection;
+import com.example.duanshopdienthoai.LoggedInUser;
 import com.example.duanshopdienthoai.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,7 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Login {
+public class LoginController {
     @FXML
     private TextField username;
     @FXML
@@ -28,6 +29,7 @@ public class Login {
         String role = checkUser(username, password);
         if(role != null){
             System.out.println("Đăng nhập thành công");
+            System.out.println("Người dùng hiện tại : " + LoggedInUser.showLoggedInUser());
             switch(role) {
                 case "Admin":
                     showAlert("Hello Admin " + username );
@@ -39,13 +41,13 @@ public class Login {
                     break;
                 case "Customer":
                     showAlert("Welcom " + username + " to join us!" );
-                    Main.changeScene("HomeCustomer.fxml");
+                    Main.changeScene("HomeCustomerController.fxml");
                     break;
 
             }
         }else{
             System.out.println("Đăng nhập thất bại");
-            showAlert("Login Fail");
+            showAlert("LoginController Fail");
             this.username.requestFocus();
         }
     }
@@ -59,10 +61,12 @@ public class Login {
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
                 boolean state = rs.getBoolean("state");
+                int userID = rs.getInt("userID");
                 if(!state){
                     showAlert("Account Block!");
                     return null;
                 }
+                LoggedInUser.login(userID, username);
                 return rs.getString("role");
             } else {return null;}
         }catch (SQLException e){
@@ -73,7 +77,7 @@ public class Login {
     }
 
     public void showSignUp(ActionEvent actionEvent) throws IOException {
-        Main.changeScene("Sign.fxml");
+        Main.changeScene("SignController.fxml");
     }
 
     public void forgetPassword(ActionEvent actionEvent) {

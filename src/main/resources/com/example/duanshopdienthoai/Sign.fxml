@@ -12,13 +12,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0"
-      style="-fx-background-color: rgba(214,229,225,0.74);" xmlns="http://javafx.com/javafx/22"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanshopdienthoai.Login.Sign">
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: rgba(214,229,225,0.74);" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanshopdienthoai.Login.SignController">
     <children>
-        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" styleClass="form-container">
+        <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="500.0" styleClass="form-container">
             <children>
-                <Label style="-fx-font-size: 50px ; -fx-text-fill: #000000;" text="Register">
+                <Label prefHeight="69.0" prefWidth="179.0" style="-fx-font-size: 50px ; -fx-text-fill: #000000;" text="Register">
                     <font>
                         <Font name="System Bold Italic" size="12.0" />
                     </font></Label>

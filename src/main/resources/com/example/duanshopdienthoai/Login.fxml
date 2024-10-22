@@ -14,7 +14,7 @@
 
 <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
       prefWidth="1280.0" styleClass="form-background" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.example.duanshopdienthoai.Login.Login">
+      fx:controller="com.example.duanshopdienthoai.Login.LoginController">
     <VBox alignment="CENTER" maxHeight="400.0" maxWidth="600.0" prefHeight="628.0" prefWidth="800.0" styleClass="vbox-rounded" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
         <Label style="-fx-font-size: 70px; -fx-text-fill: rgb(5,5,5);" text="Login"></Label>
         <HBox alignment="CENTER" prefHeight="89.0" prefWidth="800.0">
