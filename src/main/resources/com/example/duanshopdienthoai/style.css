@@ -54,3 +54,12 @@
 .button-no-border:hover {
     background-color: #1C86EE; /* Màu xanh dương nhạt hơn khi trỏ chuột */
 }
+.info-box {
+    -fx-background-color: #E8F5E9; /* Nền xanh lá nhạt */
+    -fx-border-color: #388E3C; /* Viền xanh lá đậm */
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+}
+

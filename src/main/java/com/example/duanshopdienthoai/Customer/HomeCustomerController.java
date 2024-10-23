@@ -6,10 +6,7 @@ import com.example.duanshopdienthoai.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -192,5 +189,18 @@ public class HomeCustomerController {
 
     public void showCart(MouseEvent mouseEvent) throws IOException {
         Main.changeScene("Cart.fxml");
+    }
+
+    public void goOut(ActionEvent event) throws IOException {
+        if(showConfirmation("Bạn muốn đăng xuất khỏi hệ thống?")) {
+            Main.changeScene("Login.fxml");
+        }
+    }
+    private boolean showConfirmation(String message) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        return alert.showAndWait().get() == ButtonType.OK;
     }
 }
