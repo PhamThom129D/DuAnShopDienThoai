@@ -85,7 +85,7 @@ public class HomeCustomerController {
             Label priceLabel = new Label("Giá: " + price);
             Label quantityLabel = new Label("Số lượng: " + quantity);
 
-            if (stock) {
+            if (stock && quantity > 0) {
                 Button buyButton = new Button("Thêm vào giỏ hàng");
                 buyButton.setOnAction(event -> {
                     if (LoggedInUser.getInstance() != null) {
