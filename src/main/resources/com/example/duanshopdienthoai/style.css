@@ -54,3 +54,32 @@
 .button-no-border:hover {
     background-color: #1C86EE; /* Màu xanh dương nhạt hơn khi trỏ chuột */
 }
+.info-box {
+    -fx-background-color: #E8F5E9; /* Nền xanh lá nhạt */
+    -fx-border-color: #388E3C; /* Viền xanh lá đậm */
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+}
+/* CSS cho VBox hiển thị thông tin đơn hàng */
+.vbox-order {
+    -fx-border-color: black;
+    -fx-padding: 10;
+    -fx-background-color: #ffffff;
+    -fx-spacing: 10;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+/* CSS cho HBox chứa sản phẩm */
+.hbox-product {
+    -fx-spacing: 10;
+    -fx-alignment: CENTER;
+}
+/* CustomTabPane.css */
+.tab-pane .tab-header-background {
+    -fx-background-color: #ffffff; /* Màu nền của thanh TabPane */
+}
+
+

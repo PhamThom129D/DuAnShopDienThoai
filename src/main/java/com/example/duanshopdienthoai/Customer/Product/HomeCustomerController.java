@@ -1,15 +1,12 @@
-package com.example.duanshopdienthoai.Customer;
+package com.example.duanshopdienthoai.Customer.Product;
 
 import com.example.duanshopdienthoai.DatabaseConnection;
-import com.example.duanshopdienthoai.LoggedInUser;
+import com.example.duanshopdienthoai.Login.LoggedInUser;
 import com.example.duanshopdienthoai.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -44,7 +41,15 @@ public class HomeCustomerController {
     }
 
     private void loadProducts() throws SQLException {
-        String queryTop5Product = "SELECT * FROM products ORDER BY quantity ASC LIMIT 5";
+        String queryTop5Product = "SELECT p.*, SUM(co.quantity) AS totalSold\n" +
+                "FROM Products p\n" +
+                "JOIN Cart c ON p.productID = c.productID\n" +
+                "JOIN Cart_Order co ON c.cartID = co.cartID\n" +
+                "JOIN `Order` o ON co.orderID = o.orderID\n" +
+                "WHERE o.status = 1 \n" +
+                "GROUP BY p.productID\n" +
+                "ORDER BY totalSold DESC\n" +
+                "LIMIT 5;\n";
         String queryRandomProduct = "SELECT * FROM products ORDER BY RAND() LIMIT 15";
 
         try (PreparedStatement pstmtTop = conn.prepareStatement(queryTop5Product);
@@ -53,7 +58,7 @@ public class HomeCustomerController {
              ResultSet rs2 = pstmtRandom.executeQuery()) {
 
             loadProductFromDatabase(topProduct, rs1);
-//            loadProductFromDatabase(randomProduct, rs2);
+            loadProductFromDatabase(randomProduct, rs2);
         }
     }
 
@@ -85,7 +90,7 @@ public class HomeCustomerController {
             Label priceLabel = new Label("Giá: " + price);
             Label quantityLabel = new Label("Số lượng: " + quantity);
 
-            if (stock) {
+            if (stock && quantity > 0) {
                 Button buyButton = new Button("Thêm vào giỏ hàng");
                 buyButton.setOnAction(event -> {
                     if (LoggedInUser.getInstance() != null) {
@@ -192,5 +197,22 @@ public class HomeCustomerController {
 
     public void showCart(MouseEvent mouseEvent) throws IOException {
         Main.changeScene("Cart.fxml");
+    }
+
+    public void goOut(ActionEvent event) throws IOException {
+        if(showConfirmation("Bạn muốn đăng xuất khỏi hệ thống?")) {
+            Main.changeScene("Login.fxml");
+        }
+    }
+    private boolean showConfirmation(String message) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        return alert.showAndWait().get() == ButtonType.OK;
+    }
+
+    public void showInvoice(MouseEvent mouseEvent) throws IOException {
+        Main.changeScene("Invoice.fxml");
     }
 }

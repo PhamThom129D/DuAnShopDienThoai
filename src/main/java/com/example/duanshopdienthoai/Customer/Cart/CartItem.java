@@ -1,4 +1,4 @@
-package com.example.duanshopdienthoai.Customer;
+package com.example.duanshopdienthoai.Customer.Cart;
 
 import javafx.beans.property.*;
 
@@ -11,6 +11,7 @@ public class CartItem {
     private final BooleanProperty checkbox;
     private final IntegerProperty cartID;
 
+
     public CartItem(String name, BigDecimal price, int quantity, boolean checkbox,int cartID) {
         this.name = new SimpleStringProperty(name);
         this.price = new SimpleObjectProperty<>(price);
@@ -19,6 +20,7 @@ public class CartItem {
         this.cartID = new SimpleIntegerProperty(cartID);
 
     }
+
 
     public int getCartID() {
         return cartID.get();
