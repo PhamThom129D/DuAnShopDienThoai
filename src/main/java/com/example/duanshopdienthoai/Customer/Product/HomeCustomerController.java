@@ -41,7 +41,15 @@ public class HomeCustomerController {
     }
 
     private void loadProducts() throws SQLException {
-        String queryTop5Product = "SELECT * FROM products ORDER BY quantity ASC LIMIT 5";
+        String queryTop5Product = "SELECT p.*, SUM(co.quantity) AS totalSold\n" +
+                "FROM Products p\n" +
+                "JOIN Cart c ON p.productID = c.productID\n" +
+                "JOIN Cart_Order co ON c.cartID = co.cartID\n" +
+                "JOIN `Order` o ON co.orderID = o.orderID\n" +
+                "WHERE o.status = 1 \n" +
+                "GROUP BY p.productID\n" +
+                "ORDER BY totalSold DESC\n" +
+                "LIMIT 5;\n";
         String queryRandomProduct = "SELECT * FROM products ORDER BY RAND() LIMIT 15";
 
         try (PreparedStatement pstmtTop = conn.prepareStatement(queryTop5Product);
@@ -50,7 +58,7 @@ public class HomeCustomerController {
              ResultSet rs2 = pstmtRandom.executeQuery()) {
 
             loadProductFromDatabase(topProduct, rs1);
-//            loadProductFromDatabase(randomProduct, rs2);
+            loadProductFromDatabase(randomProduct, rs2);
         }
     }
 

@@ -141,13 +141,13 @@
     <center>
         <ScrollPane prefHeight="699.0" prefWidth="1282.0" style="-fx-background-color: rgba(225,58,58,0.89)" BorderPane.alignment="CENTER">
             <content>
-            <FlowPane fx:id="showProduct" prefHeight="3000.0" prefWidth="1100.0">
+            <FlowPane fx:id="showProduct" prefHeight="3000.0" prefWidth="1100.0" style="-fx-background-color: white;">
                <children>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="2000.0" prefWidth="1181.0">
                           <children>
                               <VBox layoutX="14.0" layoutY="14.0" prefHeight="300.0" prefWidth="1113.0" style="-fx-background-color: white;">
                                   <children>
-                                      <Label prefHeight="45.0" prefWidth="587.0" text="Sản Phẩm Bán Chạy">
+                                      <Label prefHeight="100.0" prefWidth="587.0" text="Sản Phẩm Bán Chạy">
                                           <font>
                                               <Font name="Arial" size="24.0" />
                                           </font>
@@ -168,7 +168,7 @@
                         </VBox>
                         <VBox layoutX="14.0" layoutY="374.0" prefHeight="300.0" prefWidth="1113.0" style="-fx-background-color: white;">
                            <children>
-                              <Label alignment="BOTTOM_LEFT" prefHeight="63.0" prefWidth="587.0" text="Sản phẩm nổi bật">
+                              <Label prefHeight="100.0" prefWidth="587.0" text="Sản phẩm nổi bật">
                                  <font>
                                     <Font name="Arial" size="24.0" />
                                  </font>

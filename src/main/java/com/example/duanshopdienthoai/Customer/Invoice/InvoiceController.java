@@ -2,40 +2,66 @@ package com.example.duanshopdienthoai.Customer.Invoice;
 
 import com.example.duanshopdienthoai.DatabaseConnection;
 import com.example.duanshopdienthoai.Login.LoggedInUser;
+import com.example.duanshopdienthoai.Main;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.*;
 
 public class InvoiceController {
+
     @FXML
-    private Tab waitTab;
+    private VBox waitVBox;
     @FXML
-    private Tab confirmTab;
+    private VBox confirmVBox;
 
     public void initialize() {
         int userID = LoggedInUser.getInstance().getUserID();
         showOrders(userID);
+
     }
-    private void showProductFromOrder(int orderID) {
-        String query = "Select p.productName , co.quantity , p.price * co.quantity AS amountPrice"+
-                "FROM products p JOIN Cart co ON ";
+    private void showProductFromOrder(int orderID , int userID, VBox productVbox) {
+        String query = "SELECT o.status,p.productName,co.quantity, p.price * co.quantity AS amountPrice " +
+                "        FROM `Order` o" +
+                "        JOIN Cart_Order co ON o.orderID = co.orderID " +
+                "        JOIN Cart c ON co.cartID = c.cartID " +
+                "        JOIN Products p ON c.productID = p.productID " +
+                "        WHERE o.userID = ? and o.orderID = ?";
+        try(Connection connection = DatabaseConnection.getConnection()){
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, userID);
+            preparedStatement.setInt(2, orderID);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            productVbox.getChildren().clear();
+            while(resultSet.next()){
+                        String productName=resultSet.getString("productName");
+                        int quantity=resultSet.getInt("quantity");
+                        BigDecimal amountPrice =resultSet.getBigDecimal("amountPrice");
+                Label productLabel = new Label("Tên Sản Phẩm : " + productName +"\t Số lượng : " + quantity + "\t Thành Tiền : " + amountPrice );
+                    productVbox.getChildren().add(productLabel);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
     private void showOrders(int userID) {
-        String query = "SELECT o.orderID, i.invoiceID, o.orderDate, i.paymentDate, i.paymentMethod, i.total AS totalPrice,p.productName , co.quantity , p.price * co.quantity AS amountPrice,  " +
+        String query = "SELECT o.orderID, i.invoiceID, o.orderDate, i.paymentDate, i.paymentMethod, i.total AS totalPrice,p.productName ,  " +
                 "o.status " +
                 "FROM `Order` o " +
                 "JOIN Cart_Order co ON o.orderID = co.orderID " +
                 "JOIN Cart c ON co.cartID = c.cartID " +
                 "JOIN Products p ON p.productID = c.productID " +
                 "JOIN Invoices i ON o.orderID = i.orderID " +
-                "WHERE o.userID = ?";
+                "WHERE o.userID = ? order by i.paymentDate DESC ";
 
         try (Connection connection = DatabaseConnection.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -51,17 +77,12 @@ public class InvoiceController {
                         resultSet.getString("paymentMethod"),
                         resultSet.getBigDecimal("totalPrice")
                 );
-                HBox hBox = createOrderHBox(
-                        resultSet.getString("productName"),
-                        resultSet.getInt("quantity"),
-                        resultSet.getBigDecimal("amountPrice")
-                        );
 
                 Boolean status = resultSet.getBoolean("status");
-                if (status) {
-                    ((VBox) ((ScrollPane) confirmTab.getContent()).getContent()).getChildren().add(vBox);
+                if (!status) {
+                    waitVBox.getChildren().add(vBox);
                 } else {
-                    ((VBox) ((ScrollPane) waitTab.getContent()).getContent()).getChildren().add(vBox);
+                    confirmVBox.getChildren().add(vBox);
                 }
             }
         } catch (SQLException e) {
@@ -82,21 +103,26 @@ public class InvoiceController {
         Label paymentDateLabel = new Label("Ngày thanh toán: " + paymentDate);
         Label paymentMethodLabel = new Label("Phương thức thanh toán: " + paymentMethod);
         Label totalPriceLabel = new Label("Tổng tiền: " + totalPrice);
-
-//        HBox hBox = createOrderHBox();
-        vBox.getChildren().addAll(invoiceIDLabel, orderIDLabel, orderDateLabel, paymentDateLabel, paymentMethodLabel,  totalPriceLabel);
+        Button productButton = new Button("Hiển thị sản phẩm");
+        VBox productVBox = new VBox(10);
+        productVBox.setAlignment(Pos.TOP_LEFT);
+        productButton.setOnAction(event -> {
+            if(!productVBox.isVisible()){
+                productVBox.setVisible(true);
+                showProductFromOrder(orderID,LoggedInUser.getInstance().getUserID(),productVBox);
+                productButton.setText("Ẩn sản phẩm");
+            }else {
+                productVBox.setVisible(false);
+                productVBox.getChildren().clear();
+                productButton.setText("Hiển thị sản phẩm");
+            }
+        });
+        vBox.getChildren().addAll(invoiceIDLabel, orderIDLabel, orderDateLabel, paymentDateLabel, paymentMethodLabel,  totalPriceLabel, productButton,productVBox);
 
         return vBox;
     }
-    private HBox createOrderHBox( String productName, int quantity, BigDecimal amount) {
-        HBox hBox = new HBox(10);
-        hBox.setAlignment(Pos.TOP_LEFT);
-        hBox.getStyleClass().add("hbox-order");
-        Label productNameLabel = new Label("Tên sản phẩm: " + productName);
-        Label quantityLabel = new Label("Số lượng: " + quantity);
-        Label amountLabel = new Label("Thành tiền: " + amount);
-        hBox.getChildren().addAll(productNameLabel, quantityLabel, amountLabel);
 
-        return hBox;
+    public void goBack() throws IOException {
+        Main.changeScene("HomeCustomer.fxml");
     }
 }

@@ -5,16 +5,18 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.example.duanshopdienthoai.Customer.Cart.CartController" styleClass="root">
-    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goBack" prefHeight="33.0" prefWidth="84.0" text="Go back">
-        <font>
-            <Font size="15.0" />
-        </font></Button>
+<VBox alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: white;" styleClass="root" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanshopdienthoai.Customer.Cart.CartController">
+   <ImageView fitHeight="27.0" fitWidth="37.0" onMouseClicked="#goBack" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../Image/thoat.jpg" />
+      </image>
+   </ImageView>
     <TableView fx:id="cartTable" prefHeight="621.0" prefWidth="1280.0" styleClass="table-view">
         <columns>
             <TableColumn fx:id="checkBoxColumn" prefWidth="105.77778708934784" text="Chọn sản phẩm" />
@@ -45,7 +47,7 @@
         </HBox>
         <HBox layoutX="710.0" layoutY="10.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="45.0" prefWidth="136.0">
             <children>
-                <Button styleClass="button" alignment="CENTER" onAction="#handlePayment" prefHeight="48.0" prefWidth="104.0" text="Đặt hàng" textAlignment="CENTER">
+                <Button alignment="CENTER" onAction="#handlePayment" prefHeight="48.0" prefWidth="104.0" styleClass="button" text="Đặt hàng" textAlignment="CENTER">
                     <font>
                         <Font size="19.0" />
                     </font></Button>

@@ -3,20 +3,32 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanshopdienthoai.Customer.Invoice.InvoiceController">
-  <tabs>
-    <Tab fx:id="waitTab" text="Chờ xác nhận">
-      <ScrollPane>
-        <VBox fx:id="waitVBox" alignment="CENTER" prefHeight="371.0" prefWidth="600.0" />
-      </ScrollPane>
-    </Tab>
-    <Tab fx:id="confirmTab" text="Đã xác nhận">
-      <ScrollPane>
-        <VBox fx:id="confirmVBox" alignment="CENTER" prefHeight="373.0" prefWidth="599.0" />
-      </ScrollPane>
-    </Tab>
 
-  </tabs>
-</TabPane>
+<VBox alignment="TOP_RIGHT" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanshopdienthoai.Customer.Invoice.InvoiceController">
+   <children>
+      <ImageView fitHeight="42.0" fitWidth="37.0" onMouseClicked="#goBack" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/thoat.jpg" />
+         </image>
+      </ImageView>
+      <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1283.0" side="RIGHT" styleClass="tab-header-background" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="waitTab" text="Chờ xác nhận">
+            <ScrollPane style="-fx-background-color: white;">
+              <VBox fx:id="waitVBox" alignment="CENTER" prefWidth="1281.0" VBox.vgrow="ALWAYS" />
+            </ScrollPane>
+          </Tab>
+          <Tab fx:id="confirmTab" text="Đã xác nhận">
+            <ScrollPane>
+              <VBox fx:id="confirmVBox" alignment="CENTER" prefWidth="1281.0" style="-fx-background-color: white;" VBox.vgrow="ALWAYS" />
+            </ScrollPane>
+          </Tab>
+      
+                                      </tabs>
+      </TabPane>
+   </children>
+</VBox>

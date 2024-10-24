@@ -227,7 +227,7 @@ public class CartController {
         }
     }
 
-    public void goBack(ActionEvent event) throws IOException {
+    public void goBack() throws IOException {
         Main.changeScene("HomeCustomer.fxml");
     }
 
