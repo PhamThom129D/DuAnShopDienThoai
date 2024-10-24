@@ -53,7 +53,7 @@ public class HomeCustomerController {
              ResultSet rs2 = pstmtRandom.executeQuery()) {
 
             loadProductFromDatabase(topProduct, rs1);
-//            loadProductFromDatabase(randomProduct, rs2);
+            loadProductFromDatabase(randomProduct, rs2);
         }
     }
 
