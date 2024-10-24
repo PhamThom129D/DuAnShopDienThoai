@@ -1,4 +1,4 @@
-package com.example.duanshopdienthoai;
+package com.example.duanshopdienthoai.Login;
 
 public class LoggedInUser {
     private int userID;

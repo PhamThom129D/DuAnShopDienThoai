@@ -1,7 +1,7 @@
-package com.example.duanshopdienthoai.Customer;
+package com.example.duanshopdienthoai.Customer.Cart;
 
 import com.example.duanshopdienthoai.DatabaseConnection;
-import com.example.duanshopdienthoai.LoggedInUser;
+import com.example.duanshopdienthoai.Login.LoggedInUser;
 import com.example.duanshopdienthoai.Main;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -227,7 +227,7 @@ public class CartController {
         }
     }
 
-    public void goBack(ActionEvent event) throws IOException {
+    public void goBack() throws IOException {
         Main.changeScene("HomeCustomer.fxml");
     }
 
