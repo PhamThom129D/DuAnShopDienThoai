@@ -1,7 +1,6 @@
 package com.example.duanshopdienthoai.Login;
 
 import com.example.duanshopdienthoai.DatabaseConnection;
-import com.example.duanshopdienthoai.LoggedInUser;
 import com.example.duanshopdienthoai.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -47,7 +46,7 @@ public class LoginController {
             }
         }else{
             System.out.println("Đăng nhập thất bại");
-            showAlert("LoginController Fail");
+            showAlert("Sai mật khẩu hoặc tên đăng nhập!");
             this.username.requestFocus();
         }
     }

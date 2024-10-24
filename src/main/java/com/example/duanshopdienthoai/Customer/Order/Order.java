@@ -1,4 +1,4 @@
-package com.example.duanshopdienthoai.Customer;
+package com.example.duanshopdienthoai.Customer.Order;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;

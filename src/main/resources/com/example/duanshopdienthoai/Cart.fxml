@@ -9,12 +9,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanshopdienthoai.Customer.CartController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.duanshopdienthoai.Customer.Cart.CartController" styleClass="root">
     <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goBack" prefHeight="33.0" prefWidth="84.0" text="Go back">
         <font>
             <Font size="15.0" />
         </font></Button>
-    <TableView fx:id="cartTable" prefHeight="621.0" prefWidth="1280.0">
+    <TableView fx:id="cartTable" prefHeight="621.0" prefWidth="1280.0" styleClass="table-view">
         <columns>
             <TableColumn fx:id="checkBoxColumn" prefWidth="105.77778708934784" text="Chọn sản phẩm" />
             <TableColumn fx:id="idColumn" minWidth="0.0" prefWidth="54.888877868652344" text="STT" />
@@ -44,7 +45,7 @@
         </HBox>
         <HBox layoutX="710.0" layoutY="10.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="45.0" prefWidth="136.0">
             <children>
-                <Button alignment="CENTER" onAction="#handlePayment" prefHeight="48.0" prefWidth="104.0" text="Đặt hàng" textAlignment="CENTER">
+                <Button styleClass="button" alignment="CENTER" onAction="#handlePayment" prefHeight="48.0" prefWidth="104.0" text="Đặt hàng" textAlignment="CENTER">
                     <font>
                         <Font size="19.0" />
                     </font></Button>

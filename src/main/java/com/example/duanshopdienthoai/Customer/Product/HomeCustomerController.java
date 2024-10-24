@@ -1,7 +1,7 @@
-package com.example.duanshopdienthoai.Customer;
+package com.example.duanshopdienthoai.Customer.Product;
 
 import com.example.duanshopdienthoai.DatabaseConnection;
-import com.example.duanshopdienthoai.LoggedInUser;
+import com.example.duanshopdienthoai.Login.LoggedInUser;
 import com.example.duanshopdienthoai.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -202,5 +202,9 @@ public class HomeCustomerController {
         alert.setHeaderText(null);
         alert.setContentText(message);
         return alert.showAndWait().get() == ButtonType.OK;
+    }
+
+    public void showInvoice(MouseEvent mouseEvent) throws IOException {
+        Main.changeScene("Invoice.fxml");
     }
 }

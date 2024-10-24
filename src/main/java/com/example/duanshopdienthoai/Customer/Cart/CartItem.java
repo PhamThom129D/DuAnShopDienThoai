@@ -1,4 +1,4 @@
-package com.example.duanshopdienthoai.Customer;
+package com.example.duanshopdienthoai.Customer.Cart;
 
 import javafx.beans.property.*;
 
