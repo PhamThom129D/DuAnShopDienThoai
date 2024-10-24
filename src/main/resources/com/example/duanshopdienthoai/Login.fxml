@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="form-background" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanshopdienthoai.Login.LoginController">
+    <VBox alignment="CENTER" maxHeight="400.0" maxWidth="600.0" prefHeight="628.0" prefWidth="800.0" styleClass="form-container" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+        <Label style="-fx-font-size: 70px; -fx-text-fill: rgb(5,5,5);" text="Đăng nhập" />
+        <HBox alignment="CENTER" prefHeight="89.0" prefWidth="800.0">
+            <children>
+                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../Image/account.jpg" />
+                    </image>
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                </ImageView>
+                <TextField fx:id="username" maxWidth="300.0" prefHeight="40.0" prefWidth="250.0" promptText="Nhập tên đăng nhập của bạn" style="-fx-background-color: white;" />
+            </children>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="83.0" prefWidth="800.0">
+            <children>
+                <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                    <image>
+                        <Image url="@../Image/pass.jpg" />
+                    </image>
+                </ImageView>
+                <PasswordField fx:id="password" maxWidth="300.0" prefHeight="40.0" prefWidth="250.0" promptText="Nhập mật khẩu của bạn" style="-fx-background-color: white;" />
+            </children>
+        </HBox>
+        <Button alignment="CENTER" contentDisplay="TEXT_ONLY" onAction="#Login" prefHeight="39.0" prefWidth="104.0" style="-fx-background-color: #FF6347;" text="Đăng nhập" textAlignment="CENTER">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
+        <HBox alignment="BOTTOM_CENTER" prefHeight="83.0" prefWidth="800.0">
+            <children>
+                <Hyperlink onAction="#showSignUp" text="Bạn chưa có tài khoản ?">
+                    <font>
+                        <Font size="14.0" />
+                    </font></Hyperlink>
+                <Hyperlink onAction="#forgetPassword" text="Quên mật khẩu">
+                    <font>
+                        <Font size="14.0" />
+                    </font></Hyperlink>
+            </children>
+        </HBox>
+    </VBox>
+</HBox>
