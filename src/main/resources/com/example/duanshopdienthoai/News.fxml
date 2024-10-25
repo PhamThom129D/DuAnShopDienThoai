@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1031.0" prefWidth="1572.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" prefHeight="125.0" prefWidth="1278.0" text="Tin tức 24h">
+         <font>
+            <Font name="System Bold" size="29.0" />
+         </font>
+      </Label>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/tintuc1.jpg" />
+               </image>
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </ImageView>
+            <Hyperlink prefHeight="149.0" prefWidth="983.0" text=" So sánh Samsung Galaxy S25 Ultra và S24 Ultra ">
+               <font>
+                  <Font size="30.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="30.0" />
+               </HBox.margin>
+            </Hyperlink>
+            <HBox prefHeight="100.0" prefWidth="200.0" />
+         </children>
+         <VBox.margin>
+            <Insets bottom="50.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <VBox.margin>
+            <Insets bottom="50.0" />
+         </VBox.margin>
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/tintuc2.jpg" />
+               </image>
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </ImageView>
+            <Hyperlink prefHeight="148.0" prefWidth="789.0" text="Đánh giá Oppo A3 : Thiêt kế đẹp và tinh tế , siêu bền bỉ , sạc pin nhanh  ">
+               <HBox.margin>
+                  <Insets left="30.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Hyperlink>
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+               <image>
+                  <Image url="@../Image/tintuc3.jpg" />
+               </image>
+            </ImageView>
+            <Hyperlink prefHeight="148.0" prefWidth="825.0" text="Đánh giá Xiaomi 15 Pro : Hiệu năng vượt trội , nhiều cải tiến đáng giá  ">
+               <HBox.margin>
+                  <Insets left="30.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Hyperlink>
+         </children>
+         <VBox.margin>
+            <Insets bottom="50.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+               <image>
+                  <Image url="@../Image/tinuc4.jpg" />
+               </image>
+            </ImageView>
+            <Hyperlink prefHeight="150.0" prefWidth="864.0" text="Đánh giá Xiaomi 15 Ultra : Quái vật hiệu năng khủng , camera chất chụp ảnh chuyên nghiệp ">
+               <HBox.margin>
+                  <Insets left="30.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Hyperlink>
+         </children>
+         <VBox.margin>
+            <Insets bottom="50.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="189.0" prefWidth="1572.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+               <image>
+                  <Image url="@../Image/tintuc5.jpg" />
+               </image>
+            </ImageView>
+            <Hyperlink prefHeight="150.0" prefWidth="913.0" text="Đánh giá Xiaomi 15 : Thiết kế sang trọng , camera Leica chụp ảnh đỉnh cao   ">
+               <HBox.margin>
+                  <Insets left="30.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Hyperlink>
+         </children>
+      </HBox>
+   </children>
+</VBox>
