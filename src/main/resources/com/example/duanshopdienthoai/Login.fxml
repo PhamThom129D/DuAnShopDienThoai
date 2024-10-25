@@ -19,7 +19,7 @@
             <children>
                 <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../Image/account.jpg" />
+                        <Image url="@./Image/account.jpg" />
                     </image>
                     <HBox.margin>
                         <Insets />
@@ -35,7 +35,7 @@
                         <Insets />
                     </HBox.margin>
                     <image>
-                        <Image url="@../Image/pass.jpg" />
+                        <Image url="@./Image/pass.jpg" />
                     </image>
                 </ImageView>
                 <PasswordField fx:id="password" maxWidth="300.0" prefHeight="40.0" prefWidth="250.0" promptText="Nhập mật khẩu của bạn" style="-fx-background-color: white;" />

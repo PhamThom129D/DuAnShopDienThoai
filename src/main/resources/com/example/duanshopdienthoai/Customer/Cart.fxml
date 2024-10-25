@@ -14,10 +14,10 @@
 <VBox alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: white;" styleClass="root" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanshopdienthoai.Customer.Cart.CartController">
    <ImageView fitHeight="27.0" fitWidth="37.0" onMouseClicked="#goBack" pickOnBounds="true" preserveRatio="true">
       <image>
-         <Image url="@../Image/thoat.jpg" />
+         <Image url="@.././Image/thoat.jpg" />
       </image>
    </ImageView>
-    <TableView fx:id="cartTable" prefHeight="621.0" prefWidth="1280.0" styleClass="table-view">
+    <TableView fx:id="cartTable" prefWidth="1280.0" styleClass="table-view">
         <columns>
             <TableColumn fx:id="checkBoxColumn" prefWidth="105.77778708934784" text="Chọn sản phẩm" />
             <TableColumn fx:id="idColumn" minWidth="0.0" prefWidth="54.888877868652344" text="STT" />

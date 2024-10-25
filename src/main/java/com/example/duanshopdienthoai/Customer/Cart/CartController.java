@@ -17,7 +17,8 @@ import java.math.BigDecimal;
 import java.sql.*;
 import java.time.LocalDateTime;
 
-import static java.time.LocalTime.now;
+import static com.example.duanshopdienthoai.ReUse.showAlert;
+import static com.example.duanshopdienthoai.ReUse.showConfirmation;
 
 public class CartController {
     @FXML
@@ -228,23 +229,29 @@ public class CartController {
     }
 
     public void goBack() throws IOException {
-        Main.changeScene("HomeCustomer.fxml");
+        Main.changeScene("Customer/HomeCustomer.fxml");
     }
 
     public void handlePayment(ActionEvent event) throws SQLException, IOException {
         updateCondition();
-        int orderID = addOrder(LoggedInUser.getInstance().getUserID(), LocalDateTime.now());
-        for (CartItem cartItem : cartTable.getItems()) {
-            if (cartItem.isCheckbox()) {
-                int quantity = cartItem.getQuantity();
-                int cartID = cartItem.getCartID();
-                int productID = getProductIDFromCart(cartID);
-                addCart_Order(cartID, orderID, quantity);
-                updateQuantityProduct(productID, quantity);
+        boolean hasSelectedItems = cartTable.getItems().stream()
+                .anyMatch(CartItem::isCheckbox);
+        if (hasSelectedItems) {
+            int orderID = addOrder(LoggedInUser.getInstance().getUserID(), LocalDateTime.now());
+            for (CartItem cartItem : cartTable.getItems()) {
+                if (cartItem.isCheckbox()) {
+                    int quantity = cartItem.getQuantity();
+                    int cartID = cartItem.getCartID();
+                    int productID = getProductIDFromCart(cartID);
+                    addCart_Order(cartID, orderID, quantity);
+                    updateQuantityProduct(productID, quantity);
+                }
             }
+            System.out.println("Thêm vào Cart_Order,Order,Cập nhật số lượng sản phẩm");
+            Main.changeScene("Customer/Order.fxml");
+        }else {
+            showAlert("Vui lòng chọn ít nhất một sản phẩm để đặt hàng.");
         }
-        System.out.println("Thêm vào Cart_Order,Order,Cập nhật số lượng sản phẩm");
-        Main.changeScene("Order.fxml");
     }
 
     private int getProductIDFromCart(int cartID) throws SQLException {
@@ -319,12 +326,5 @@ public class CartController {
         }else {
             System.out.println("Không tìm thấy sản phẩm " + productID);
         }
-    }
-    private boolean showConfirmation(String message) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation");
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        return alert.showAndWait().get() == ButtonType.OK;
     }
 }

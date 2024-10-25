@@ -30,6 +30,7 @@ public class LoggedInUser {
     }
 
     public static void logout() {
+        System.out.println(instance.getUsername() + " đăng xuất");
         instance = null;
     }
 

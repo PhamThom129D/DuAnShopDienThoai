@@ -5,13 +5,12 @@ import com.example.duanshopdienthoai.Login.LoggedInUser;
 import com.example.duanshopdienthoai.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import static com.example.duanshopdienthoai.ReUse.showAlert;
 
 public class UpdateAccountController {
     @FXML
@@ -45,13 +44,8 @@ public class UpdateAccountController {
             goback(event);
         }
     }
-    private void showAlert(String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setHeaderText(message);
-        alert.show();
-    }
 
     public void goback(ActionEvent event) throws IOException {
-        Main.changeScene("AccountCustomer.fxml");
+        Main.changeScene("Customer/AccountCustomer.fxml");
     }
 }

@@ -9,7 +9,6 @@ import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 
@@ -19,6 +18,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import static com.example.duanshopdienthoai.ReUse.showConfirmation;
 
 public class HomeCustomerController {
     @FXML
@@ -155,7 +156,7 @@ public class HomeCustomerController {
     }
 
     public void showHome(ActionEvent event) throws IOException, SQLException {
-        Main.changeScene("HomeCustomer.fxml");
+        Main.changeScene("Customer/HomeCustomer.fxml");
     }
 
     public void showProductType(String type){
@@ -174,45 +175,31 @@ public class HomeCustomerController {
     public void showIphone() {
         showProductType("Iphone");
     }
-
-    public void showSamSung(ActionEvent event) {
+    public void showSamSung() {
         showProductType("Samsung");
     }
-
-    public void showXiaomi(ActionEvent event) {
+    public void showXiaomi() {
         showProductType("Xiaomi");
     }
-
-    public void showOppo(ActionEvent event) {
+    public void showOppo() {
         showProductType("Oppo");
     }
-
-    public void showNokia(ActionEvent event) {
+    public void showNokia() {
         showProductType("Nokia");
     }
-
-    public void showAccount(MouseEvent mouseEvent) throws IOException {
-        Main.changeScene("AccountCustomer.fxml");
+    public void showAccount() throws IOException {
+        Main.changeScene("Customer/AccountCustomer.fxml");
     }
-
-    public void showCart(MouseEvent mouseEvent) throws IOException {
-        Main.changeScene("Cart.fxml");
+    public void showCart() throws IOException {
+        Main.changeScene("Customer/Cart.fxml");
     }
-
-    public void goOut(ActionEvent event) throws IOException {
+    public void goOut() throws IOException {
         if(showConfirmation("Bạn muốn đăng xuất khỏi hệ thống?")) {
+            LoggedInUser.logout();
             Main.changeScene("Login.fxml");
         }
     }
-    private boolean showConfirmation(String message) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation");
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        return alert.showAndWait().get() == ButtonType.OK;
-    }
-
-    public void showInvoice(MouseEvent mouseEvent) throws IOException {
-        Main.changeScene("Invoice.fxml");
+    public void showInvoice() throws IOException {
+        Main.changeScene("Customer/Invoice.fxml");
     }
 }

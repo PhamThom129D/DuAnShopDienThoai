@@ -12,6 +12,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import static com.example.duanshopdienthoai.ReUse.showAlert;
+
 public class LoginController {
     @FXML
     private TextField username;
@@ -32,7 +34,7 @@ public class LoginController {
             switch(role) {
                 case "Admin":
                     showAlert("Xin chào Admin " + username );
-                    Main.changeScene("HomeAdmin.fxml");
+                    Main.changeScene("Admin/HomeAdmin.fxml");
                     break;
                 case "User":
                     showAlert("Xin chào nhân viên " + username );
@@ -40,9 +42,8 @@ public class LoginController {
                     break;
                 case "Customer":
                     showAlert("Chào mừng " + username + " tham gia mua sắm!" );
-                    Main.changeScene("HomeCustomer.fxml");
+                    Main.changeScene("Customer/HomeCustomer.fxml");
                     break;
-
             }
         }else{
             System.out.println("Đăng nhập thất bại");
@@ -63,6 +64,7 @@ public class LoginController {
                 int userID = rs.getInt("userID");
                 if(!state){
                     showAlert("Tài khoản đã bị khóa!");
+                    System.exit(0);
                     return null;
                 }
                 LoggedInUser.login(userID, username);
@@ -81,10 +83,5 @@ public class LoginController {
 
     public void forgetPassword(ActionEvent actionEvent) {
         showAlert("Chờ email phản hồi");
-    }
-    private void showAlert(String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setHeaderText(message);
-        alert.show();
     }
 }

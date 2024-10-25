@@ -3,13 +3,13 @@ package com.example.duanshopdienthoai.Customer.Invoice;
 import com.example.duanshopdienthoai.DatabaseConnection;
 import com.example.duanshopdienthoai.Login.LoggedInUser;
 import com.example.duanshopdienthoai.Main;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.Tab;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -23,11 +23,10 @@ public class InvoiceController {
     private VBox waitVBox;
     @FXML
     private VBox confirmVBox;
-
+    ObservableList<ProductOrder> productList = FXCollections.observableArrayList();
     public void initialize() {
         int userID = LoggedInUser.getInstance().getUserID();
         showOrders(userID);
-
     }
     private void showProductFromOrder(int orderID , int userID, VBox productVbox) {
         String query = "SELECT o.status,p.productName,co.quantity, p.price * co.quantity AS amountPrice " +
@@ -41,27 +40,41 @@ public class InvoiceController {
             preparedStatement.setInt(1, userID);
             preparedStatement.setInt(2, orderID);
             ResultSet resultSet = preparedStatement.executeQuery();
-            productVbox.getChildren().clear();
+            productList.clear();
+
             while(resultSet.next()){
                         String productName=resultSet.getString("productName");
                         int quantity=resultSet.getInt("quantity");
                         BigDecimal amountPrice =resultSet.getBigDecimal("amountPrice");
-                Label productLabel = new Label("Tên Sản Phẩm : " + productName +"\t Số lượng : " + quantity + "\t Thành Tiền : " + amountPrice );
-                    productVbox.getChildren().add(productLabel);
+                        productList.add(new ProductOrder(productName, quantity, amountPrice));
             }
+            TableView productTable = new TableView();
+            productTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+            productTable.setItems(productList);
+
+            TableColumn productNameCol = new TableColumn("Tên Sản Phẩm");
+            TableColumn quantityCol = new TableColumn("Số lượng");
+            TableColumn amountCol = new TableColumn("Thành Tiền");
+
+            productNameCol.setCellValueFactory(new PropertyValueFactory<>("productName"));
+            quantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+            amountCol.setCellValueFactory(new PropertyValueFactory<>("amountPrice"));
+
+            productTable.getColumns().addAll(productNameCol, quantityCol, amountCol);
+            productTable.setItems(productList);
+            productVbox.getChildren().clear();
+            productVbox.getChildren().add(productTable);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
     private void showOrders(int userID) {
-        String query = "SELECT o.orderID, i.invoiceID, o.orderDate, i.paymentDate, i.paymentMethod, i.total AS totalPrice,p.productName ,  " +
-                "o.status " +
-                "FROM `Order` o " +
-                "JOIN Cart_Order co ON o.orderID = co.orderID " +
-                "JOIN Cart c ON co.cartID = c.cartID " +
-                "JOIN Products p ON p.productID = c.productID " +
-                "JOIN Invoices i ON o.orderID = i.orderID " +
-                "WHERE o.userID = ? order by i.paymentDate DESC ";
+        String query = "SELECT distinct o.orderID, i.invoiceID, o.orderDate, i.paymentDate, i.paymentMethod, i.total AS totalPrice, o.status\n" +
+                "FROM `Order` o \n" +
+                "JOIN Cart_Order co ON o.orderID = co.orderID \n" +
+                "JOIN Cart c ON co.cartID = c.cartID \n" +
+                "JOIN Invoices i ON o.orderID = i.orderID \n" +
+                "WHERE o.userID = ?  order by i.paymentDate DESC ;";
 
         try (Connection connection = DatabaseConnection.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -123,6 +136,6 @@ public class InvoiceController {
     }
 
     public void goBack() throws IOException {
-        Main.changeScene("HomeCustomer.fxml");
+        Main.changeScene("Customer/HomeCustomer.fxml");
     }
 }

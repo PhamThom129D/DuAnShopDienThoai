@@ -10,14 +10,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import static com.example.duanshopdienthoai.ReUse.showConfirmation;
 
-import static java.time.LocalTime.now;
 
 public class OrderController {
     @FXML
@@ -145,10 +144,10 @@ public class OrderController {
     public void confirmOrder(ActionEvent event) throws IOException {
         if(showConfirmation("Bạn chắc chắn đặt đơn hàng này ?")){
             saveInvoices();
-        Main.changeScene("HomeCustomer.fxml");
+        Main.changeScene("Customer/HomeCustomer.fxml");
         }
         else {
-            Main.changeScene("Cart.fxml");
+            Main.changeScene("Customer/Cart.fxml");
         }
 
     }
@@ -172,13 +171,6 @@ public class OrderController {
     }
 
     public void goback(ActionEvent event) throws IOException {
-        Main.changeScene("HomeCustomer.fxml");
-    }
-    private boolean showConfirmation(String message) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation");
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        return alert.showAndWait().get() == ButtonType.OK;
+        Main.changeScene("Customer/HomeCustomer.fxml");
     }
 }
