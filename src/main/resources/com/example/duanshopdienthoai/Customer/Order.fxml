@@ -21,7 +21,7 @@
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Image/thoat.jpg" />
+                        <Image url="@.././Image/thoat.jpg" />
                      </image>
                   </ImageView>
                </graphic>
@@ -94,7 +94,7 @@
           <TableColumn fx:id="nameProduct" prefWidth="311.33331298828125" text="Tên Sản Phẩm" />
           <TableColumn fx:id="quantityProduct" minWidth="0.0" prefWidth="184.0" text="Số Lượng" />
             <TableColumn fx:id="priceProduct" prefWidth="212.0" text="Giá Tiền" />
-            <TableColumn fx:id="amountProduct" prefWidth="186.666748046875" text="Thành Tiền" />
+            <TableColumn fx:id="amountProduct" prefWidth="191.3333740234375" text="Thành Tiền" />
         </columns>
       </TableView>
       <VBox alignment="CENTER" prefHeight="149.0" prefWidth="1280.0">

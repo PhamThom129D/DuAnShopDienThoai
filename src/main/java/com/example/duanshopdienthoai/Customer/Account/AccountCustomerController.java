@@ -3,7 +3,6 @@ package com.example.duanshopdienthoai.Customer.Account;
 import com.example.duanshopdienthoai.DatabaseConnection;
 import com.example.duanshopdienthoai.Login.LoggedInUser;
 import com.example.duanshopdienthoai.Main;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
@@ -48,11 +47,11 @@ public class AccountCustomerController {
         }
     }
 
-    public void goback(ActionEvent event) throws IOException {
-        Main.changeScene("HomeCustomer.fxml");
+    public void goback() throws IOException {
+        Main.changeScene("Customer/HomeCustomer.fxml");
     }
 
-    public void handleEdit(ActionEvent event) throws IOException {
-        Main.changeScene("UpdateAccount.fxml");
+    public void handleEdit() throws IOException {
+        Main.changeScene("Customer/UpdateAccount.fxml");
     }
 }

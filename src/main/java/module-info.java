@@ -18,5 +18,7 @@ module com.example.duanshopdienthoai {
     opens com.example.duanshopdienthoai.Customer.Order to javafx.fxml;
     exports com.example.duanshopdienthoai.Customer.Invoice;
     opens com.example.duanshopdienthoai.Customer.Invoice to javafx.fxml;
+    exports com.example.duanshopdienthoai.Admin to javafx.fxml;
+    opens com.example.duanshopdienthoai.Admin to javafx.fxml;
 
 }

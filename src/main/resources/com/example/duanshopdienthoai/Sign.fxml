@@ -24,7 +24,7 @@
                     <children>
                         <ImageView fitHeight="42.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../Image/avt.jpg" />
+                                <Image url="@./Image/avt.jpg" />
                             </image>
                         </ImageView>
                         <TextField fx:id="username" maxWidth="250" prefHeight="40.0" prefWidth="200.0" promptText="Nhập tên đăng nhập" style="-fx-background-color: white;">
@@ -35,7 +35,7 @@
                     <children>
                         <ImageView fitHeight="42.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../Image/pass.jpg" />
+                                <Image url="@./Image/pass.jpg" />
                             </image>
                         </ImageView>
                         <PasswordField fx:id="password" maxWidth="250" prefHeight="40.0" prefWidth="200.0" promptText="Nhập mật khẩu" style="-fx-background-color: white;" />
@@ -45,7 +45,7 @@
                     <children>
                         <ImageView fitHeight="42.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../Image/rePass.jpg" />
+                                <Image url="@./Image/rePass.jpg" />
                             </image>
                         </ImageView>
                         <PasswordField fx:id="rePassword" maxWidth="250" prefHeight="40.0" prefWidth="200.0" promptText="Nhập lại mật khẩu" style="-fx-background-color: white;" />
@@ -55,7 +55,7 @@
                     <children>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../Image/phoneSign.jpg" />
+                                <Image url="@./Image/phoneSign.jpg" />
                             </image>
                         </ImageView>
                         <TextField fx:id="phoneNumber" maxWidth="250" prefHeight="40.0" prefWidth="200.0" promptText="Nhập số điện thoại" style="-fx-background-color: white;">
@@ -66,7 +66,7 @@
                     <children>
                         <ImageView fitHeight="42.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../Image/diaChi.jpg" />
+                                <Image url="@./Image/diaChi.jpg" />
                             </image>
                         </ImageView>
                         <TextField fx:id="address" maxWidth="250" prefHeight="40.0" prefWidth="200.0" promptText="Nhập địa chỉ" style="-fx-background-color: white;">
