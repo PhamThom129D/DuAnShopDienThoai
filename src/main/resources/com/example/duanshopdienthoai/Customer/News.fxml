@@ -21,7 +21,7 @@
          <children>
             <ImageView fitHeight="150.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Image/tintuc1.jpg" />
+                  <Image url="@../../Image/tintuc1.jpg" />
                </image>
                <HBox.margin>
                   <Insets left="15.0" />
@@ -48,7 +48,7 @@
          <children>
             <ImageView fitHeight="150.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Image/tintuc2.jpg" />
+                  <Image url="@../../Image/tintuc2.jpg" />
                </image>
                <HBox.margin>
                   <Insets left="15.0" />
@@ -71,7 +71,7 @@
                   <Insets left="15.0" />
                </HBox.margin>
                <image>
-                  <Image url="@../Image/tintuc3.jpg" />
+                  <Image url="@../../Image/tintuc3.jpg" />
                </image>
             </ImageView>
             <Hyperlink prefHeight="148.0" prefWidth="825.0" text="Đánh giá Xiaomi 15 Pro : Hiệu năng vượt trội , nhiều cải tiến đáng giá  ">
@@ -94,7 +94,7 @@
                   <Insets left="15.0" />
                </HBox.margin>
                <image>
-                  <Image url="@../Image/tinuc4.jpg" />
+                  <Image url="@../../Image/tinuc4.jpg" />
                </image>
             </ImageView>
             <Hyperlink prefHeight="150.0" prefWidth="864.0" text="Đánh giá Xiaomi 15 Ultra : Quái vật hiệu năng khủng , camera chất chụp ảnh chuyên nghiệp ">
@@ -117,7 +117,7 @@
                   <Insets left="15.0" />
                </HBox.margin>
                <image>
-                  <Image url="@../Image/tintuc5.jpg" />
+                  <Image url="@../../Image/tintuc5.jpg" />
                </image>
             </ImageView>
             <Hyperlink prefHeight="150.0" prefWidth="913.0" text="Đánh giá Xiaomi 15 : Thiết kế sang trọng , camera Leica chụp ảnh đỉnh cao   ">
