@@ -20,19 +20,19 @@ public class HomeAdminController {
     }
 
     public void showProducts() throws IOException {
-        changeSceneAdmin("Products_Admin");
+        changeSceneAdmin("Products_Admin.fxml");
     }
 
     public void showUser() throws IOException {
-        changeSceneAdmin("User_Admin");
+        changeSceneAdmin("User_Admin.fxml");
     }
 
     public void showInvoice() throws IOException {
-        changeSceneAdmin("Invoice_Admin");
+        changeSceneAdmin("Invoice_Admin.fxml");
     }
 
     public void showStatistics() throws IOException {
-        changeSceneAdmin("Statistics_Admin");
+        changeSceneAdmin("Statistics_Admin.fxml");
     }
 
     public void goBack() throws IOException {

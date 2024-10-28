@@ -3,7 +3,6 @@ module com.example.duanshopdienthoai {
     requires javafx.fxml;
     requires java.sql;
 
-
     opens com.example.duanshopdienthoai to javafx.fxml;
     exports com.example.duanshopdienthoai;
     exports com.example.duanshopdienthoai.Login;
@@ -18,7 +17,7 @@ module com.example.duanshopdienthoai {
     opens com.example.duanshopdienthoai.Customer.Order to javafx.fxml;
     exports com.example.duanshopdienthoai.Customer.Invoice;
     opens com.example.duanshopdienthoai.Customer.Invoice to javafx.fxml;
-    exports com.example.duanshopdienthoai.Admin to javafx.fxml;
-    opens com.example.duanshopdienthoai.Admin to javafx.fxml;
 
+    exports com.example.duanshopdienthoai.Admin;
+    opens com.example.duanshopdienthoai.Admin to javafx.fxml, javafx.base;
 }
