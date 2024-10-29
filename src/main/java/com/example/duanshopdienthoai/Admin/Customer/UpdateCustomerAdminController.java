@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import static com.example.duanshopdienthoai.ReUse.showAlert;
 import static com.example.duanshopdienthoai.ReUse.showError;
 
 public class UpdateCustomerAdminController {
