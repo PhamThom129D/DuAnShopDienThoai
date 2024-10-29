@@ -3,24 +3,45 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1025.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanshopdienthoai.Admin.ProductsAdminController">
-   <top>
-      <VBox prefHeight="157.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label alignment="CENTER" prefHeight="58.0" prefWidth="1286.0" text="Quản Lý Sản Phẩm">
-               <font>
-                  <Font name="System Bold" size="40.0" />
-               </font>
-            </Label>
-            <HBox alignment="CENTER_LEFT" prefHeight="101.0" prefWidth="1280.0">
+<ScrollPane prefWidth="3000.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanshopdienthoai.Admin.ProductsAdminController">
+   <content>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1025.0">
+         <top>
+            <VBox prefHeight="96.0" prefWidth="1025.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" prefHeight="58.0" prefWidth="1286.0" text="Quản Lý Sản Phẩm">
+                     <font>
+                        <Font name="System Bold" size="40.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </top>
+         <center>
+            <TableView fx:id="productTableView" maxHeight="1.7976931348623157E308" prefWidth="1800.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn fx:id="IDProducts" prefWidth="88.66668450832367" text="Mã Sản Phẩm" />
+                <TableColumn fx:id="ImageProducts" prefWidth="183.33334350585938" text="Đường dẫn ảnh" />
+                  <TableColumn fx:id="NameProducts" prefWidth="108.66668701171875" text="Tên Sản Phẩm" />
+                  <TableColumn fx:id="QuantityProducts" prefWidth="86.666748046875" text="Số lượng" />
+                  <TableColumn fx:id="PriceProducts" prefWidth="110.00003051757812" text="Giá" />
+                  <TableColumn fx:id="TypeProducts" prefWidth="116.6666259765625" text="Loại sản phẩm" />
+                  <TableColumn fx:id="DescriptionProducts" minWidth="0.0" prefWidth="169.3333740234375" text="Mô tả" />
+                  <TableColumn fx:id="StateProducts" prefWidth="88.0" text="Trạng Thái" />
+                  <TableColumn fx:id="ActionProducts" minWidth="0.0" prefWidth="229.33331298828125" text="Hành Động" />
+              </columns>
+            </TableView>
+         </center>
+         <bottom>
+            <HBox alignment="CENTER_LEFT" prefHeight="77.0" prefWidth="1025.0" BorderPane.alignment="CENTER">
                <children>
                   <Button mnemonicParsing="false" onAction="#addProduct" prefHeight="45.0" prefWidth="200.0" text="Thêm sản phẩm">
                      <HBox.margin>
@@ -30,39 +51,12 @@
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" layoutX="40.0" layoutY="33.0" mnemonicParsing="false" onAction="#searchProductAdmin" prefHeight="45.0" prefWidth="100.0" text="Tìm Kiếm">
-                     <HBox.margin>
-                        <Insets left="50.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
-                  <TextField prefHeight="45.0" prefWidth="220.0" promptText="Tìm Kiếm Sản Phẩm" />
                </children>
                <padding>
                   <Insets right="20.0" />
                </padding>
             </HBox>
-         </children>
-      </VBox>
-   </top>
-   <center>
-      <TableView fx:id="productTableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-        <columns>
-          <TableColumn prefWidth="88.66668450832367" text="Mã Sản Phẩm" />
-          <TableColumn prefWidth="139.99994659423828" text="Đường dẫn ảnh" />
-            <TableColumn prefWidth="151.33335876464844" text="Tên Sản Phẩm" />
-            <TableColumn prefWidth="86.666748046875" text="Số lượng" />
-            <TableColumn prefWidth="110.00003051757812" text="Giá" />
-            <TableColumn prefWidth="116.6666259765625" text="Loại sản phẩm" />
-            <TableColumn minWidth="0.0" prefWidth="159.3333740234375" text="Mô tả" />
-            <TableColumn prefWidth="76.6666259765625" text="Trạng Thái" />
-            <TableColumn minWidth="0.0" prefWidth="85.33343505859375" text="Hành Động" />
-        </columns>
-         <BorderPane.margin>
-            <Insets left="15.0" />
-         </BorderPane.margin>
-      </TableView>
-   </center>
-</BorderPane>
+         </bottom>
+      </BorderPane>
+   </content>
+</ScrollPane>

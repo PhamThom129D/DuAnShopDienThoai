@@ -41,6 +41,7 @@ public class ProductsAdminController {
     @FXML
     private TableColumn<Product, Void> ActionProducts;
 
+
     public void initialize() {
         showProductTableView();
         productTableView.setEditable(true);
@@ -108,7 +109,6 @@ public class ProductsAdminController {
             }
         });
     }
-
     private void stockProduct(int idProducts) {
         String query = "Update products Set stock = false WHERE productID = ?";
         try(Connection conn = DatabaseConnection.getConnection();
@@ -134,8 +134,6 @@ public class ProductsAdminController {
             e.printStackTrace();
         }
     }
-
-
     public void addProduct(ActionEvent event) {
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AddProducts_Admin.fxml"));
@@ -147,8 +145,8 @@ public class ProductsAdminController {
         }catch (IOException e){
             e.printStackTrace();
         }
+        reLoad();
     }
-
     public void searchProductAdmin(ActionEvent event) {
     }
     public void reLoad(){

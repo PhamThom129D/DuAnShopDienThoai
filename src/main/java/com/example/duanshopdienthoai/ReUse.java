@@ -44,20 +44,4 @@ public class ReUse {
         timeline.setCycleCount(1);
         timeline.play();
     }
-    public static void showPopUp(String fxml , Object controller){
-        try{
-            FXMLLoader loader = new FXMLLoader(ReUse.class.getResource(fxml));
-            if(controller != null){
-                loader.setController(controller);
-            }
-            Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.initOwner(stage.getScene().getWindow());
-            stage.setScene(new Scene(root));
-            stage.showAndWait();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
 }

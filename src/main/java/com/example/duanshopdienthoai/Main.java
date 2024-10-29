@@ -14,7 +14,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         primaryStage = stage;
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Admin/HomeAdmin.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         primaryStage.setMaximized(true);
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
