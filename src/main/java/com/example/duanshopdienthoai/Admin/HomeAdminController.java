@@ -28,7 +28,7 @@ public class HomeAdminController {
     }
 
     public void showInvoice() throws IOException {
-        changeSceneAdmin("Invoice_Admin.fxml");
+        changeSceneAdmin("Invoices_Admin.fxml");
     }
 
     public void showStatistics() throws IOException {

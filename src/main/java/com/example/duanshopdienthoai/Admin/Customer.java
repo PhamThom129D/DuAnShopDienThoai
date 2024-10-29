@@ -1,6 +1,6 @@
 package com.example.duanshopdienthoai.Admin;
 
-public class Customer {
+public class  Customer {
     private int customerID;
     private String customerName;
     private String customerPassword;
