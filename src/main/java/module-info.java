@@ -20,4 +20,5 @@ module com.example.duanshopdienthoai {
 
     exports com.example.duanshopdienthoai.Admin;
     opens com.example.duanshopdienthoai.Admin to javafx.fxml, javafx.base;
+
 }
