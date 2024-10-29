@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="924.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanshopdienthoai.Customer.Recuitment">
+   <children>
+      <VBox prefHeight="887.0" prefWidth="1280.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="79.0" prefWidth="1280.0" text="Tuyển Dụng ">
+               <font>
+                  <Font name="System Bold" size="50.0" />
+               </font>
+            </Label>
+            <VBox>
+               <children>
+                  <HBox prefHeight="150.0" prefWidth="1221.0">
+                     <children>
+                        <ImageView fitHeight="250.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Image/tuyendung1.jpg" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <VBox prefHeight="250.0" prefWidth="1020.0">
+                           <children>
+                              <Hyperlink prefHeight="112.0" prefWidth="1020.0" text="Quản lý khu vực ASM Hà Nội ">
+                                 <font>
+                                    <Font name="System Bold" size="25.0" />
+                                 </font>
+                              </Hyperlink>
+                              <Label alignment="TOP_LEFT" prefHeight="202.0" prefWidth="631.0" text="Yêu cầu kinh nghiệm ở vị trí tương đương tối thiểu 02 năm . Ưu tiên từng làm việc với đối tác , hãng và lên kế hoạch , chương trình khuyến mãi , các chuỗi hệ thống bán lẻ . Am hiểu về lĩnh vực công nghệ , thị trường điện thoại / phụ kiện điện thoại và hệ thống bán " wrapText="true">
+                                 <VBox.margin>
+                                    <Insets left="15.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+               <children>
+                  <HBox prefHeight="213.0" prefWidth="1270.0">
+                     <children>
+                        <ImageView fitHeight="237.0" fitWidth="238.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Image/tuyendung2.jpg" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <VBox prefHeight="200.0" prefWidth="1028.0">
+                           <children>
+                              <Hyperlink prefHeight="84.0" prefWidth="1022.0" text="Nhân Viên QA Camera">
+                                 <font>
+                                    <Font name="System Bold" size="25.0" />
+                                 </font>
+                              </Hyperlink>
+                              <Label alignment="TOP_LEFT" prefHeight="161.0" prefWidth="677.0" text="Yêu cầu Kinh nghiệm từ 1 năm về Giám sát , Giám sát Camera , QC Tin học văn phòng khá khả năng quan sát và nhận biết vấn đề tốt Sức khoẻ và mắt tốt ( Ưu tiên không bị cận ) trung thực , trách nhiệm trong công việc Có tính cam kết hoàn thành công việc " wrapText="true">
+                                 <VBox.margin>
+                                    <Insets left="15.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" />
+               </VBox.margin>
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="249.0" fitWidth="243.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@../../Image/tuyendung3.2.jpg" />
+                           </image>
+                        </ImageView>
+                        <VBox prefHeight="116.0" prefWidth="1035.0">
+                           <children>
+                              <Hyperlink prefHeight="87.0" prefWidth="1017.0" text="Tuyển dụng các vị trí khối cửa hàng">
+                                 <font>
+                                    <Font name="System Bold" size="25.0" />
+                                 </font>
+                              </Hyperlink>
+                              <Label alignment="TOP_LEFT" prefHeight="141.0" prefWidth="709.0" text="Vị trí nhân viên tư vấn , hướng dẫn và hỗ trợ khách hàng trong việc trải nghiệm các dòng sản phẩm , tư vấn sản phẩm , các chính sách và các gói bảo hành của công ty . Phụ trách Livestream bán hàng qua kênh tiktok cửa hàng . Hỗ trợ kiểm kê các sản phẩm trong cửa hàng" wrapText="true">
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="15.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="186.0" fitWidth="263.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@../../Image/tuyendung4.jpg" />
+                           </image>
+                        </ImageView>
+                        <VBox prefHeight="176.0" prefWidth="1011.0">
+                           <children>
+                              <Hyperlink text="Nhân viên tư vấn bán hàng VERTU - HN - HCM">
+                                 <font>
+                                    <Font name="System Bold" size="25.0" />
+                                 </font>
+                              </Hyperlink>
+                              <Label alignment="TOP_LEFT" prefHeight="113.0" prefWidth="646.0" text="Yêu cầu Nam / Nữ từ 18 – 30 tuổi. Ngoại hình tốt, ưa nhìn. Nam: 1m80, Nữ: 1m60 trở lên Giao tiếp rõ ràng, giọng nói dễ nghe. Ưu tiên Tiếng Anh giao tiếp. Trung thực, thân thiện, chủ động, có trách nhiệm trong công việc. Ưu tiên các ứng viên đã có thời" wrapText="true">
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children></VBox>
+   </children>
+</AnchorPane>

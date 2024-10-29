@@ -73,7 +73,6 @@ public class CartController {
         actionColumn.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(null));
         actionColumn.setCellFactory(col -> new TableCell<CartItem, Void>() {
             private final Button buttonDelete = new Button("Xóa khỏi giỏ hàng");
-
             {
                 buttonDelete.setOnAction(e -> {
                     CartItem cartItem = getTableView().getItems().get(getIndex());
