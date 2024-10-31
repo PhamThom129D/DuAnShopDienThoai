@@ -29,6 +29,10 @@ public class HomeCustomerController {
     private FlowPane randomProduct;
     @FXML
     private FlowPane showProduct;
+    @FXML
+    private TextField searchTextFile;
+    @FXML
+    private Label countCart;
 
     private Connection conn;
 
@@ -61,6 +65,7 @@ public class HomeCustomerController {
 
             loadProductFromDatabase(topProduct, rs1);
             loadProductFromDatabase(randomProduct, rs2);
+            setCountCart();
         }
     }
 
@@ -133,13 +138,25 @@ public class HomeCustomerController {
             pstmt.setBigDecimal(4, price);
             pstmt.executeUpdate();
             System.out.println("Thêm thành công");
+            setCountCart();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    @FXML
-    private TextField searchTextFile;
+    private void setCountCart(){
+        String query = "SELECT COUNT(*) as SoLuongSanPham FROM Cart where userID = ? and checkbox = 0";
+        try(PreparedStatement ps = conn.prepareStatement(query)){
+            ps.setInt(1, LoggedInUser.getInstance().getUserID());
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                countCart.setText(String.valueOf(rs.getInt("SoLuongSanPham")));
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Đếm số lượng sản phẩm lỗi");
+        }
+    }
 
     public void searchProduct(ActionEvent event) {
         String searchText = searchTextFile.getText();

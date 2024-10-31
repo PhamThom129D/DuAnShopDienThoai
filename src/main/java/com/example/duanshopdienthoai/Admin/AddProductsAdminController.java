@@ -7,6 +7,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.math.BigDecimal;
@@ -16,7 +19,9 @@ import java.sql.SQLException;
 
 public class AddProductsAdminController {
     @FXML
-    private TextField productImage;
+    private ImageView productImage;
+    @FXML
+    private TextField productImageUrl;
     @FXML
     private TextField productName;
     @FXML
@@ -33,12 +38,12 @@ public class AddProductsAdminController {
         productType.getSelectionModel().selectFirst();
     }
     public void addProduct(ActionEvent event) {
-        if(productImage.getText().isEmpty() || productName.getText().isEmpty() || productPrice.getText().isEmpty() || productQuantity.getText().isEmpty() || productDescription.getText().isEmpty()){
+        if(productImageUrl.getText().isEmpty() || productName.getText().isEmpty() || productPrice.getText().isEmpty() || productQuantity.getText().isEmpty() || productDescription.getText().isEmpty()){
             ReUse.showAlert("Không được để trống");
             return;
         }
         try {
-            String productImage1 = this.productImage.getText();
+            String productImage1 = this.productImageUrl.getText();
             String productName = this.productName.getText();
             String priceString = this.productPrice.getText().replace(" vnđ" , "").trim();
             BigDecimal productPrice = new BigDecimal(priceString);
@@ -58,11 +63,22 @@ public class AddProductsAdminController {
                 ps.setString(6, productType);
                 ps.executeUpdate();
                 System.out.println("Thêm thành công sản phẩm mới");
-                Stage stage = (Stage) productImage.getScene().getWindow();
+                Stage stage = (Stage) productImageUrl.getScene().getWindow();
                 stage.close();
             }
         }catch (NumberFormatException| SQLException e){
             ReUse.showAlert("Sai định dạng đầu vào ");
+        }
+    }
+
+    public void afterEnterUrl(KeyEvent keyEvent) {
+        String newUrl = productImageUrl.getText();
+        try{
+            Image image = new Image(newUrl,true);
+            productImage.setImage(image);
+        }catch (Exception e){
+            System.out.println("Không thể tải ảnh " + e.getMessage());
+            ReUse.showAlert("Không thể tải ảnh");
         }
     }
 }

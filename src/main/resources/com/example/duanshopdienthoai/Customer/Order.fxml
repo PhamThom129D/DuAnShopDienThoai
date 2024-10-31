@@ -13,9 +13,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" spacing="10.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanshopdienthoai.Customer.Order.OrderController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" spacing="5.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanshopdienthoai.Customer.Order.OrderController">
    <children>
-      <ButtonBar prefHeight="19.0" prefWidth="1280.0">
+      <ButtonBar prefHeight="41.0" prefWidth="1280.0">
         <buttons>
           <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#goback" style="-fx-background-color: white;" text="Button">
                <graphic>
@@ -28,12 +28,12 @@
             </Button>
         </buttons>
       </ButtonBar>
-      <Label alignment="CENTER" prefHeight="36.0" prefWidth="1280.0" text="Đơn đặt hàng">
+      <Label alignment="CENTER" prefHeight="46.0" prefWidth="1280.0" text="Đơn đặt hàng">
          <font>
-            <Font name="System Bold" size="50.0" />
+            <Font name="System Bold" size="40.0" />
          </font>
       </Label>
-      <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0">
          <children>
             <Label prefHeight="25.0" prefWidth="151.0" text="Tên Khách Hàng :">
                <font>
@@ -47,7 +47,7 @@
             </Label>
          </children>
       </HBox>
-      <HBox alignment="CENTER" layoutX="10.0" layoutY="103.0" prefHeight="40.0" prefWidth="200.0">
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="103.0" prefHeight="30.0" prefWidth="200.0">
          <children>
             <Label prefHeight="25.0" prefWidth="152.0" text="Địa chỉ :">
                <font>
@@ -61,7 +61,7 @@
             </Label>
          </children>
       </HBox>
-      <HBox alignment="CENTER" layoutX="10.0" layoutY="203.0" prefHeight="40.0" prefWidth="200.0">
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="203.0" prefHeight="30.0" prefWidth="200.0">
          <children>
             <Label prefHeight="25.0" prefWidth="159.0" text="Số điện thoại :">
                <font>
@@ -75,7 +75,7 @@
             </Label>
          </children>
       </HBox>
-      <HBox alignment="CENTER" layoutX="10.0" layoutY="223.0" prefHeight="40.0" prefWidth="200.0">
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="223.0" prefHeight="30.0" prefWidth="200.0">
          <children>
             <Label prefHeight="25.0" prefWidth="160.0" text="Thời gian đặt hàng :">
                <font>
@@ -97,21 +97,26 @@
             <TableColumn fx:id="amountProduct" prefWidth="191.3333740234375" text="Thành Tiền" />
         </columns>
       </TableView>
-      <VBox alignment="CENTER" prefHeight="149.0" prefWidth="1280.0">
+      <VBox alignment="CENTER" prefHeight="141.0" prefWidth="1280.0">
          <children>
             <HBox alignment="CENTER" prefHeight="47.0" prefWidth="1280.0">
                <children>
-                  <Label prefHeight="48.0" prefWidth="162.0" text="Tổng tiền :">
+                  <Label prefHeight="47.0" prefWidth="181.0" text="Tổng tiền :">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="totalPrice" layoutX="10.0" layoutY="10.0" prefHeight="47.0" prefWidth="301.0" text="0">
+                  <Label fx:id="totalPrice" layoutX="10.0" layoutY="10.0" prefHeight="41.0" prefWidth="327.0" text="0 vnđ">
                      <font>
                         <Font name="System Bold Italic" size="20.0" />
                      </font></Label>
                </children>
             </HBox>
+            <Label text="Phương thức thanh toán ">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
             <ChoiceBox fx:id="paymentType" prefHeight="25.0" prefWidth="150.0" />
             <Button mnemonicParsing="false" onAction="#confirmOrder" prefHeight="40.0" prefWidth="185.0" text="Xác nhận đơn hàng">
                <VBox.margin>

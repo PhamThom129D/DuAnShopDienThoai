@@ -25,7 +25,7 @@ public class ProductsAdminController {
     @FXML
     private TableColumn<Product, Integer> IDProducts;
     @FXML
-    private TableColumn<Product, String> ImageProducts;
+    private TableColumn<Product, ImageView> ImageProducts;
     @FXML
     private TableColumn<Product, String> NameProducts;
     @FXML
@@ -40,8 +40,6 @@ public class ProductsAdminController {
     private TableColumn<Product, Boolean> StateProducts;
     @FXML
     private TableColumn<Product, Void> ActionProducts;
-
-
     public void initialize() {
         showProductTableView();
         productTableView.setEditable(true);
@@ -64,8 +62,8 @@ public class ProductsAdminController {
                 String type = resultSet.getString("type");
 
                 ImageView productImage = new ImageView(urlImage);
-                productImage.setFitHeight(100);
-                productImage.setFitWidth(100);
+                productImage.setFitHeight(80);
+                productImage.setFitWidth(70);
 
                 Product product = new Product(productID,productImage,productName,quantity,price,type,description,stock);
                 productTableView.getItems().add(product);

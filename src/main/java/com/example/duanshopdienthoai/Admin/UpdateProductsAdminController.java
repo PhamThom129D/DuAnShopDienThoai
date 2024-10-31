@@ -6,17 +6,22 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
-import java.awt.geom.Area;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class UpdateProductsAdminController {
     @FXML
-    private TextField productImage;
+    private ImageView productImage;
+    @FXML
+    private TextField productImageUrl;
     @FXML
     private TextField productName;
     @FXML
@@ -33,7 +38,7 @@ public class UpdateProductsAdminController {
     private RadioButton OutOfStock;
 
     private Product product;
-
+private Map<String , Image> imageCache = new HashMap<>();
     public void initialize() {
         typeProduct.getItems().addAll("Samsung", "iPhone", "Nokia","Opppo","Xiaomi");
         typeProduct.getSelectionModel().selectFirst();
@@ -43,10 +48,12 @@ public class UpdateProductsAdminController {
         ToggleGroup stockGroup = new ToggleGroup();
         InStock.setToggleGroup(stockGroup);
         OutOfStock.setToggleGroup(stockGroup);
+
     }
     public void setProducts(Product product) {
         this.product = product;
-        productImage.setText(product.getImageProduct().getImage().getUrl());
+        productImage.setImage(product.getImageProduct().getImage());
+        productImageUrl.setText(product.getImageProduct().getImage().getUrl());
         productName.setText(product.getNameProduct());
         productPrice.setText(product.getPriceProduct().toString() + " vnđ");
         productQuantity.setText(String.valueOf(product.getQuantityProduct()));
@@ -61,11 +68,11 @@ public class UpdateProductsAdminController {
     public void updateProduct(ActionEvent event) {
         if(product == null){
             ReUse.showAlert("Không tìm thấy sản phẩm để cập nhật.");
-        }else if(productImage.getText().isEmpty() || productName.getText().isEmpty() || productPrice.getText().isEmpty() || productQuantity.getText().isEmpty() || productDescription.getText().isEmpty()){
+        }else if(productImageUrl.getText().isEmpty() || productName.getText().isEmpty() || productPrice.getText().isEmpty() || productQuantity.getText().isEmpty() || productDescription.getText().isEmpty()){
             ReUse.showAlert("Không được để trống.");
         }
         try{
-            Image image = new Image(productImage.getText());
+            Image image = new Image(productImageUrl.getText());
             product.getImageProduct().setImage(image);
             product.setNameProduct(productName.getText());
             String price = productPrice.getText().replace(" vnđ","").trim();
@@ -95,7 +102,7 @@ public class UpdateProductsAdminController {
             ps.setInt(8,product.getIdProduct());
             ps.executeUpdate();
 
-            Stage stage = (Stage) productImage.getScene().getWindow();
+            Stage stage = (Stage) productImageUrl.getScene().getWindow();
             stage.close();
         }catch (SQLException e){
             e.printStackTrace();
@@ -103,4 +110,14 @@ public class UpdateProductsAdminController {
         }
     }
 
+    public void afterEnterUrl(KeyEvent keyEvent) {
+        String newUrl = productImageUrl.getText();
+        try{
+            Image image = new Image(newUrl,true);
+            productImage.setImage(image);
+        }catch (Exception e){
+            System.out.println("Không thể tải ảnh " + e.getMessage());
+        }
+
+    }
 }
