@@ -13,6 +13,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.*;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import static com.example.duanshopdienthoai.ReUse.showConfirmation;
@@ -125,11 +127,33 @@ public class OrderController {
     private void setTableColumn() {
         nameProduct.setCellValueFactory(new PropertyValueFactory<>("name"));
         priceProduct.setCellValueFactory(new PropertyValueFactory<>("price"));
+        priceProduct.setCellFactory(column -> new TableCell<>() {
+            @Override
+            protected void updateItem(BigDecimal item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    setText(item + " vnđ");
+                }
+            }
+        });
         quantityProduct.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         amountProduct.setCellValueFactory(cellData -> {
             Order order = cellData.getValue();
             BigDecimal amount = order.getPrice().multiply(BigDecimal.valueOf(order.getQuantity()));
             return new ReadOnlyObjectWrapper<>(amount);
+        });
+        amountProduct.setCellFactory(column -> new TableCell<>() {
+            @Override
+            protected void updateItem(BigDecimal item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    setText(item + " vnđ");
+                }
+            }
         });
     }
 
@@ -137,7 +161,7 @@ public class OrderController {
         BigDecimal total = orderList.stream()
                 .map(Order :: getAmount)
                 .reduce(BigDecimal.ZERO,BigDecimal::add);
-        totalPrice.setText(String.valueOf(total));
+        totalPrice.setText(total + " vnđ");
     }
 
 
@@ -162,7 +186,10 @@ public class OrderController {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
             String formattedDate = now.format(formatter);
             preparedStatement.setString(3, formattedDate);
-            preparedStatement.setString(4, totalPrice.getText());
+            BigDecimal total = orderList.stream()
+                    .map(order -> order.getPrice().multiply(BigDecimal.valueOf(order.getQuantity())))
+                    .reduce(BigDecimal.ZERO, BigDecimal::add);
+            preparedStatement.setBigDecimal(4, total);
             preparedStatement.executeUpdate();
             System.out.println("Thêm hóa đơn thành công");
         } catch (SQLException e) {

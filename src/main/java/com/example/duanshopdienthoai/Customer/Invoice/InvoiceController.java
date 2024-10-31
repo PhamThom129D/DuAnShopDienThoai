@@ -60,6 +60,7 @@ public class InvoiceController {
             quantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
             amountCol.setCellValueFactory(new PropertyValueFactory<>("amountPrice"));
 
+
             productTable.getColumns().addAll(productNameCol, quantityCol, amountCol);
             productTable.setItems(productList);
             productVbox.getChildren().clear();
@@ -115,7 +116,7 @@ public class InvoiceController {
         Label orderDateLabel = new Label("Ngày đặt hàng: " + orderDate);
         Label paymentDateLabel = new Label("Ngày thanh toán: " + paymentDate);
         Label paymentMethodLabel = new Label("Phương thức thanh toán: " + paymentMethod);
-        Label totalPriceLabel = new Label("Tổng tiền: " + totalPrice);
+        Label totalPriceLabel = new Label("Tổng tiền: " + totalPrice + " vnđ");
         Button productButton = new Button("Hiển thị sản phẩm");
         VBox productVBox = new VBox(10);
         productVBox.setAlignment(Pos.TOP_LEFT);

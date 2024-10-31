@@ -1,89 +1,91 @@
 package com.example.duanshopdienthoai.Admin;
 
+import javafx.scene.image.ImageView;
+
 import java.math.BigDecimal;
 
 public class Product {
-    int IDProducts;
-    String ImageProducts;
-    String NameProducts;
-    int QuantityProducts;
-    BigDecimal PriceProducts;
-    String TypeProducts;
-    String DescriptionProducts;
-    Boolean StateProducts;
+    int idProduct;
+    ImageView imageProduct;
+    String nameProduct;
+    int quantityProduct;
+    BigDecimal priceProduct;
+    String typeProduct;
+    String descriptionProduct;
+    Boolean stateProduct;
 
-    public Product(int IDProducts, String ImageProducts , String NameProducts , int QuantityProducts , BigDecimal PriceProducts , String TypeProducts , String DescriptionProducts , boolean StateProducts){
-        this.IDProducts = IDProducts;
-        this.ImageProducts = ImageProducts;
-        this.NameProducts = NameProducts;
-        this.QuantityProducts = QuantityProducts;
-        this.PriceProducts = PriceProducts;
-        this.TypeProducts = TypeProducts;
-        this.DescriptionProducts = DescriptionProducts;
-        this.StateProducts = StateProducts;
+    public Product(int idProduct, ImageView imageProduct , String nameProduct , int quantityProduct , BigDecimal priceProduct , String typeProduct , String descriptionProduct , boolean stateProduct){
+        this.idProduct = idProduct;
+        this.imageProduct = imageProduct;
+        this.nameProduct = nameProduct;
+        this.quantityProduct = quantityProduct;
+        this.priceProduct = priceProduct;
+        this.typeProduct = typeProduct;
+        this.descriptionProduct = descriptionProduct;
+        this.stateProduct = stateProduct;
     }
 
-    public int getIDProducts() {
-        return IDProducts;
+    public int getIDProduct() {
+        return idProduct;
     }
 
-    public void setIDProducts(int IDProducts) {
-        this.IDProducts = IDProducts;
+    public void setIDProduct(int idProduct) {
+        this.idProduct = idProduct;
     }
 
-    public String getImageProducts() {
-        return ImageProducts;
+    public ImageView getImageProduct() {
+        return imageProduct;
     }
 
-    public void setImageProducts(String imageProducts) {
-        ImageProducts = imageProducts;
+    public void setImageProduct(ImageView imageProducts) {
+        imageProduct = imageProducts;
     }
 
-    public String getNameProducts() {
-        return NameProducts;
+    public String getNameProduct() {
+        return nameProduct;
     }
 
-    public void setNameProducts(String nameProducts) {
-        NameProducts = nameProducts;
+    public void setNameProduct(String nameProducts) {
+        nameProduct = nameProducts;
     }
 
-    public int getQuantityProducts() {
-        return QuantityProducts;
+    public int getQuantityProduct() {
+        return quantityProduct;
     }
 
-    public void setQuantityProducts(int quantityProducts) {
-        QuantityProducts = quantityProducts;
+    public void setQuantityProduct(int quantityProducts) {
+        quantityProduct = quantityProducts;
     }
 
-    public BigDecimal getPriceProducts() {
-        return PriceProducts;
+    public BigDecimal getPriceProduct() {
+        return priceProduct;
     }
 
-    public void setPriceProducts(BigDecimal priceProducts) {
-        PriceProducts = priceProducts;
+    public void setPriceProduct(BigDecimal priceProducts) {
+        priceProduct = priceProducts;
     }
 
-    public String getTypeProducts() {
-        return TypeProducts;
+    public String getTypeProduct() {
+        return typeProduct;
     }
 
-    public void setTypeProducts(String typeProducts) {
-        TypeProducts = typeProducts;
+    public void setTypeProduct(String typeProducts) {
+        typeProduct = typeProducts;
     }
 
-    public String getDescriptionProducts() {
-        return DescriptionProducts;
+    public String getDescriptionProduct() {
+        return descriptionProduct;
     }
 
-    public void setDescriptionProducts(String descriptionProducts) {
-        DescriptionProducts = descriptionProducts;
+    public void setDescriptionProduct(String descriptionProducts) {
+        descriptionProduct = descriptionProducts;
     }
 
-    public Boolean getStateProducts() {
-        return StateProducts;
+    public Boolean getStateProduct() {
+        return stateProduct;
     }
 
-    public void setStateProducts(Boolean stateProducts) {
-        StateProducts = stateProducts;
+    public void setStateProduct(Boolean stateProducts) {
+        stateProduct = stateProducts;
     }
 }

@@ -10,6 +10,8 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
@@ -32,7 +34,7 @@ public class CustomerAdminController {
     @FXML
     private TableColumn<Customer, String> customerPhone;
     @FXML
-    private TableColumn<Customer, String> customerState;
+    private TableColumn<Customer, Boolean> customerState;
     @FXML
     private TableColumn<Customer, Void> actionCustomer;
 
@@ -69,6 +71,29 @@ public class CustomerAdminController {
         customerPassword.setCellValueFactory(new PropertyValueFactory<>("customerPassword"));
         customerAddress.setCellValueFactory(new PropertyValueFactory<>("customerAddress"));
         customerState.setCellValueFactory(new PropertyValueFactory<>("customerState"));
+        customerState.setCellFactory(col -> new TableCell<Customer, Boolean>() {
+            private final ImageView imageView = new ImageView();
+            @Override
+            protected void updateItem(Boolean item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setGraphic(null);
+                }else {
+                    if(item){
+                        String urlImage = getClass().getResource("/com/example/duanshopdienthoai/Image/check.jpg").toExternalForm();
+                        imageView.setImage(new Image(urlImage));
+
+                    }else {
+                        String urlImage2 = getClass().getResource("/com/example/duanshopdienthoai/Image/uncheck.jpg").toExternalForm();
+                        imageView.setImage(new Image(urlImage2));
+                    }
+                    imageView.setFitHeight(20);
+                    imageView.setFitWidth(20);
+
+                }
+                setGraphic(imageView);
+            }
+        });
         customerPhone.setCellValueFactory(new PropertyValueFactory<>("customerPhone"));
 
         actionCustomer.setCellFactory(col -> new TableCell<Customer, Void>() {
@@ -103,7 +128,12 @@ public class CustomerAdminController {
                 if (empty) {
                     setGraphic(null);
                 } else {
-                    setGraphic(new HBox(5, blockButton, updateButton));
+                    Customer customer = getTableView().getItems().get(getIndex());
+                    if (!customer.getCustomerState()) {
+                        setGraphic(new HBox(5, updateButton));
+                    } else {
+                        setGraphic(new HBox(5, blockButton, updateButton));
+                    }
                 }
             }
         });

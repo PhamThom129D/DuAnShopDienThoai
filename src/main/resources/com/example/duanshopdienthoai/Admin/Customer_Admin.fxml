@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.duanshopdienthoai.Admin.CustomerAdminController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanshopdienthoai.Admin.CustomerAdminController">
    <children>
       <BorderPane prefWidth="1020.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
          <top>
@@ -22,13 +21,13 @@
          <center>
             <TableView fx:id="customerTableView" prefWidth="1020.0" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn fx:id="customerID" prefWidth="98.00000190734863" text="Mã Khách Hàng" />
-                <TableColumn fx:id="customerName" prefWidth="136.66669464111328" text="Tên Đăng Nhập" />
-                  <TableColumn fx:id="customerPassword" minWidth="0.0" prefWidth="146.0" text="Mật Khẩu" />
-                  <TableColumn fx:id="customerPhone" prefWidth="166.0" text="Số Điện Thoại" />
-                  <TableColumn fx:id="customerAddress" minWidth="0.0" prefWidth="164.0" text="Địa Chỉ" />
-                  <TableColumn fx:id="customerState" prefWidth="80" text="Trạng thái" />
-                  <TableColumn fx:id="actionCustomer" prefWidth="206.0" text="Hành Động" />
+                <TableColumn fx:id="customerID" prefWidth="98.00000190734863" style="-fx-alignment: CENTER;" text="Mã Khách Hàng" />
+                <TableColumn fx:id="customerName" prefWidth="136.66669464111328" style="-fx-alignment: CENTER;" text="Tên Đăng Nhập" />
+                  <TableColumn fx:id="customerPassword" minWidth="0.0" prefWidth="146.0" style="-fx-alignment: CENTER;" text="Mật Khẩu" />
+                  <TableColumn fx:id="customerPhone" prefWidth="166.0" style="-fx-alignment: CENTER;" text="Số Điện Thoại" />
+                  <TableColumn fx:id="customerAddress" minWidth="0.0" prefWidth="164.0" style="-fx-alignment: CENTER;" text="Địa Chỉ" />
+                  <TableColumn fx:id="customerState" prefWidth="80" style="-fx-alignment: CENTER;" text="Trạng thái" />
+                  <TableColumn fx:id="actionCustomer" prefWidth="206.0" style="-fx-alignment: CENTER;" text="Hành Động" />
               </columns>
                <BorderPane.margin>
                   <Insets left="20.0" />

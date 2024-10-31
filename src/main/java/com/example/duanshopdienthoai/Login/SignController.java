@@ -30,28 +30,29 @@ public class SignController{
 
 
     public void signUp(ActionEvent actionEvent) throws SQLException {
-        String username = this.username.getText();
+        String username1 = this.username.getText();
         String password = this.password.getText();
         String rePassword = this.rePassword.getText();
         String address = this.address.getText();
         String phoneNumber = this.phoneNumber.getText();
 
-        if(checkAccount(username)){
+        if(checkAccount(username1)){
             showAlert("Tên đăng nhập đã tồn tại.");
-        }else if(username.length() <6 ){
+            setColorLabel(username);
+        }else if(username1.length() <6 ){
             showAlert("Tên đăng nhập quá ngắn . Tên đăng nhập tối thiểu gồm 6 kí tự.");
         }else if(password.length() <6 ){
             showAlert("Mật khẩu quá ngắn . Mật khẩu tối thiểu 8 kí tự.");
         }else if(!isValidAddress(address)){
             showAlert("Địa chỉ không hợp lệ.");
         }else if(!isValidPhoneNumber(phoneNumber)) {
-            showAlert("Số điện thoại không hợp tệ . Số điện thoại phải gồm 10 chữ số và bắt đầu bằng số 0.");
+            showAlert("Số điện thoại không hợp lệ . Số điện thoại phải gồm 10 chữ số và bắt đầu bằng số 0.");
         }else if(!rePassword.equals(password) ){
             showAlert("Mật khẩu không trùng khớp.");
-        }else if(username.isEmpty()||password.isEmpty()||rePassword.isEmpty()||address.isEmpty()||phoneNumber.isEmpty()){
+        }else if(username1.isEmpty()||password.isEmpty()||rePassword.isEmpty()||address.isEmpty()||phoneNumber.isEmpty()){
             showAlert("Không được để trống.");
         }else {
-            saveUserNew(username,password,address,phoneNumber);
+            saveUserNew(username1,password,address,phoneNumber);
             showAlert("Đăng ký thành công. Mời đăng nhập lại.");
             showLogin();
         }
@@ -69,6 +70,9 @@ public class SignController{
         }catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+    private void setColorLabel(TextField textField){
+        textField.setStyle("-fx-border-color: rgba(255,0,0,0.5);");
     }
     private boolean checkAccount(String username) throws SQLException {
         Connection conn = DatabaseConnection.getConnection();

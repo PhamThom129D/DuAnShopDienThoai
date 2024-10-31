@@ -7,11 +7,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
@@ -55,7 +54,7 @@ public class ProductsAdminController {
             ResultSet resultSet = statement.executeQuery(query);
             while(resultSet.next()){
                 int productID = resultSet.getInt("productID");
-                String productImage = resultSet.getString("productImage");
+                String urlImage = resultSet.getString("productImage");
                 String productName = resultSet.getString("productName");
                 int quantity = resultSet.getInt("quantity");
                 BigDecimal price = resultSet.getBigDecimal("price");
@@ -63,8 +62,13 @@ public class ProductsAdminController {
                 Boolean stock = resultSet.getBoolean("stock");
                 String type = resultSet.getString("type");
 
+                ImageView productImage = new ImageView(urlImage);
+                productImage.setFitHeight(50);
+                productImage.setFitWidth(50);
+
                 Product product = new Product(productID,productImage,productName,quantity,price,type,description,stock);
                 productTableView.getItems().add(product);
+                System.out.println(productID);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -72,14 +76,67 @@ public class ProductsAdminController {
         setProductTableView();
     }
     public void setProductTableView() {
-        IDProducts.setCellValueFactory(new PropertyValueFactory<>("IDProducts"));
-        ImageProducts.setCellValueFactory(new PropertyValueFactory<>("ImageProducts"));
-        NameProducts.setCellValueFactory(new PropertyValueFactory<>("NameProducts"));
-        PriceProducts.setCellValueFactory(new PropertyValueFactory<>("PriceProducts"));
-        QuantityProducts.setCellValueFactory(new PropertyValueFactory<>("QuantityProducts"));
-        TypeProducts.setCellValueFactory(new PropertyValueFactory<>("TypeProducts"));
-        DescriptionProducts.setCellValueFactory(new PropertyValueFactory<>("DescriptionProducts"));
-        StateProducts.setCellValueFactory(new PropertyValueFactory<>("StateProducts"));
+        IDProducts.setCellValueFactory(new PropertyValueFactory<>("idProduct"));
+        ImageProducts.setCellValueFactory(new PropertyValueFactory<>("imageProduct"));
+        NameProducts.setCellValueFactory(new PropertyValueFactory<>("nameProduct"));
+        PriceProducts.setCellValueFactory(new PropertyValueFactory<>("priceProduct"));
+        PriceProducts.setCellFactory(column -> new TableCell<>() {
+            @Override
+            protected void updateItem(BigDecimal item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    setText(item + " vnđ");
+                }
+            }
+        });
+        QuantityProducts.setCellValueFactory(new PropertyValueFactory<>("quantityProduct"));
+        TypeProducts.setCellValueFactory(new PropertyValueFactory<>("typeProduct"));
+        DescriptionProducts.setCellValueFactory(new PropertyValueFactory<>("descriptionProduct"));
+        DescriptionProducts.setCellFactory(column -> new TableCell<Product, String>() {
+            private final TextArea textArea = new TextArea();
+            {
+                textArea.setWrapText(true);
+                textArea.setEditable(false);
+                textArea.setPrefSize(200,50);
+                textArea.setStyle("-fx-border-color: transparent; -fx-background-color: transparent;");
+            }
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setGraphic(null);
+                }else {
+                    textArea.setText(item);
+                    setGraphic(textArea);
+                }
+            }
+        });
+        StateProducts.setCellValueFactory(new PropertyValueFactory<>("stateProduct"));
+        StateProducts.setCellFactory(col -> new TableCell<Product, Boolean>() {
+            private final ImageView imageView = new ImageView();
+            @Override
+            protected void updateItem(Boolean item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setGraphic(null);
+                }else {
+                    if(item){
+                        String urlImage = getClass().getResource("/com/example/duanshopdienthoai/Image/check.jpg").toExternalForm();
+                        imageView.setImage(new Image(urlImage));
+
+                    }else {
+                        String urlImage2 = getClass().getResource("/com/example/duanshopdienthoai/Image/uncheck.jpg").toExternalForm();
+                        imageView.setImage(new Image(urlImage2));
+                    }
+                    imageView.setFitHeight(20);
+                    imageView.setFitWidth(20);
+
+                }
+                setGraphic(imageView);
+            }
+        });
         ActionProducts.setCellFactory(col -> new TableCell<Product, Void>() {
             private final Button stockButton = new Button("Hết Hàng");
             private final Button updateButton = new Button("Sửa thông tin");
@@ -88,7 +145,7 @@ public class ProductsAdminController {
                 stockButton.setOnAction((ActionEvent event) -> {
                     Product product = getTableView().getItems().get(getIndex());
                     if(ReUse.showConfirmation("Sản phẩm này đã hết hàng ?")) {
-                        stockProduct(product.getIDProducts());
+                        stockProduct(product.getIDProduct());
                     }
                     reLoad();
                 });
@@ -104,7 +161,13 @@ public class ProductsAdminController {
                 if (empty) {
                     setGraphic(null);
                 }else {
-                    setGraphic(new HBox(5,stockButton,updateButton));
+                    Product product = getTableView().getItems().get(getIndex());
+
+                    if(!product.getStateProduct()){
+                        setGraphic(updateButton);
+                    }else {
+                        setGraphic(new HBox(5,stockButton,updateButton));
+                    }
                 }
             }
         });
@@ -146,8 +209,6 @@ public class ProductsAdminController {
             e.printStackTrace();
         }
         reLoad();
-    }
-    public void searchProductAdmin(ActionEvent event) {
     }
     public void reLoad(){
         productTableView.getItems().clear();

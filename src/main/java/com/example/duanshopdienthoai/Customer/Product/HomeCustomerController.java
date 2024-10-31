@@ -3,6 +3,7 @@ package com.example.duanshopdienthoai.Customer.Product;
 import com.example.duanshopdienthoai.DatabaseConnection;
 import com.example.duanshopdienthoai.Login.LoggedInUser;
 import com.example.duanshopdienthoai.Main;
+import com.example.duanshopdienthoai.ReUse;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
@@ -72,7 +73,6 @@ public class HomeCustomerController {
             int productId = rs.getInt("productId");
             boolean stock = rs.getBoolean("stock");
             String imageUrl = rs.getString("productImage");
-            Image productImage = new Image(imageUrl);
             String productName = rs.getString("productName");
             BigDecimal price = rs.getBigDecimal("price");
             int quantity = rs.getInt("quantity");
@@ -83,12 +83,12 @@ public class HomeCustomerController {
             vbox.setAlignment(Pos.CENTER);
             vbox.getStyleClass().add("top-product");
 
-            ImageView imageView = new ImageView(productImage);
+            ImageView imageView = new ImageView(imageUrl);
             imageView.setFitWidth(155);
             imageView.setFitHeight(145);
 
             Label nameLabel = new Label(productName);
-            Label priceLabel = new Label("Giá: " + price);
+            Label priceLabel = new Label( price +" vnđ");
             Label quantityLabel = new Label("Số lượng: " + quantity);
 
             if (stock && quantity > 0) {
@@ -201,5 +201,17 @@ public class HomeCustomerController {
     }
     public void showInvoice() throws IOException {
         Main.changeScene("Customer/Invoice.fxml");
+    }
+
+    public void showDiscount(ActionEvent event) {
+        ReUse.showAlert("Đang hoàn thiện");
+    }
+
+    public void showNews(ActionEvent event) {
+        ReUse.showAlert("Đang hoàn thiện");
+    }
+
+    public void showRecruitment(ActionEvent event) {
+        ReUse.showAlert("Đang hoàn thiện");
     }
 }

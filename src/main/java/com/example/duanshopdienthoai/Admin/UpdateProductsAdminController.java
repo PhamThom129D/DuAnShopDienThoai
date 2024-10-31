@@ -4,12 +4,11 @@ import com.example.duanshopdienthoai.DatabaseConnection;
 import com.example.duanshopdienthoai.ReUse;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.awt.geom.Area;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -25,7 +24,7 @@ public class UpdateProductsAdminController {
     @FXML
     private TextField productQuantity;
     @FXML
-    private TextField productDescription;
+    private TextArea productDescription;
     @FXML
     private ChoiceBox typeProduct;
     @FXML
@@ -47,12 +46,12 @@ public class UpdateProductsAdminController {
     }
     public void setProducts(Product product) {
         this.product = product;
-        productImage.setText(product.getImageProducts());
-        productName.setText(product.getNameProducts());
-        productPrice.setText(product.getPriceProducts().toString());
-        productQuantity.setText(String.valueOf(product.getQuantityProducts()));
-        productDescription.setText(product.getDescriptionProducts());
-        if(product.getStateProducts()){
+        productImage.setText(product.getImageProduct().getImage().getUrl());
+        productName.setText(product.getNameProduct());
+        productPrice.setText(product.getPriceProduct().toString() + " vnđ");
+        productQuantity.setText(String.valueOf(product.getQuantityProduct()));
+        productDescription.setText(product.getDescriptionProduct());
+        if(product.getStateProduct()){
             InStock.setSelected(true);
         }else {
             OutOfStock.setSelected(true);
@@ -66,13 +65,15 @@ public class UpdateProductsAdminController {
             ReUse.showAlert("Không được để trống.");
         }
         try{
-            product.setImageProducts(productImage.getText());
-            product.setNameProducts(productName.getText());
-            product.setPriceProducts(new BigDecimal(productPrice.getText()));
-            product.setQuantityProducts(Integer.parseInt(productQuantity.getText()));
-            product.setDescriptionProducts(productDescription.getText());
-            product.setTypeProducts((String) typeProduct.getValue());
-            product.setStateProducts(InStock.isSelected());
+            Image image = new Image(productImage.getText());
+            product.getImageProduct().setImage(image);
+            product.setNameProduct(productName.getText());
+            String price = productPrice.getText().replace(" vnđ","").trim();
+            product.setPriceProduct(new BigDecimal(price));
+            product.setQuantityProduct(Integer.parseInt(productQuantity.getText()));
+            product.setDescriptionProduct(productDescription.getText());
+            product.setTypeProduct((String) typeProduct.getValue());
+            product.setStateProduct(InStock.isSelected());
             
             saveProduct(product);
         }catch (NumberFormatException | SQLException e){
@@ -84,14 +85,14 @@ public class UpdateProductsAdminController {
         String query = "Update Products set productImage = ? , productName = ? , quantity = ? , price = ? , type = ? , description =? , stock =? where productID = ?";
         try (Connection conn = DatabaseConnection.getConnection();
         PreparedStatement ps = conn.prepareStatement(query)) {
-            ps.setString(1, product.getImageProducts());
-            ps.setString(2, product.getNameProducts());
-            ps.setInt(3, product.getQuantityProducts());
-            ps.setBigDecimal(4, product.getPriceProducts());
-            ps.setString(5,product.getTypeProducts());
-            ps.setString(6, product.getDescriptionProducts());
-            ps.setBoolean(7, product.getStateProducts());
-            ps.setInt(8,product.getIDProducts());
+            ps.setString(1, product.getImageProduct().getImage().getUrl());
+            ps.setString(2, product.getNameProduct());
+            ps.setInt(3, product.getQuantityProduct());
+            ps.setBigDecimal(4, product.getPriceProduct());
+            ps.setString(5,product.getTypeProduct());
+            ps.setString(6, product.getDescriptionProduct());
+            ps.setBoolean(7, product.getStateProduct());
+            ps.setInt(8,product.getIDProduct());
             ps.executeUpdate();
 
             Stage stage = (Stage) productImage.getScene().getWindow();
