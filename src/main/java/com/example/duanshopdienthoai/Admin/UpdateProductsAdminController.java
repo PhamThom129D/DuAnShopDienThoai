@@ -38,7 +38,7 @@ public class UpdateProductsAdminController {
         typeProduct.getItems().addAll("Samsung", "iPhone", "Nokia","Opppo","Xiaomi");
         typeProduct.getSelectionModel().selectFirst();
         typeProduct.getSelectionModel().selectedItemProperty().addListener((observableValue, oldvalue, newValue) -> {
-                typeProduct.getValue().toString();
+            typeProduct.getValue().toString();
         });
         ToggleGroup stockGroup = new ToggleGroup();
         InStock.setToggleGroup(stockGroup);
@@ -74,7 +74,7 @@ public class UpdateProductsAdminController {
             product.setDescriptionProduct(productDescription.getText());
             product.setTypeProduct((String) typeProduct.getValue());
             product.setStateProduct(InStock.isSelected());
-            
+
             saveProduct(product);
         }catch (NumberFormatException | SQLException e){
             System.out.println("Sai định dạng đầu vào");
@@ -84,7 +84,7 @@ public class UpdateProductsAdminController {
     private void saveProduct(Product product) throws SQLException {
         String query = "Update Products set productImage = ? , productName = ? , quantity = ? , price = ? , type = ? , description =? , stock =? where productID = ?";
         try (Connection conn = DatabaseConnection.getConnection();
-        PreparedStatement ps = conn.prepareStatement(query)) {
+             PreparedStatement ps = conn.prepareStatement(query)) {
             ps.setString(1, product.getImageProduct().getImage().getUrl());
             ps.setString(2, product.getNameProduct());
             ps.setInt(3, product.getQuantityProduct());
@@ -92,7 +92,7 @@ public class UpdateProductsAdminController {
             ps.setString(5,product.getTypeProduct());
             ps.setString(6, product.getDescriptionProduct());
             ps.setBoolean(7, product.getStateProduct());
-            ps.setInt(8,product.getIDProduct());
+            ps.setInt(8,product.getIdProduct());
             ps.executeUpdate();
 
             Stage stage = (Stage) productImage.getScene().getWindow();

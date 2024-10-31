@@ -1,3 +1,4 @@
+
 package com.example.duanshopdienthoai.Admin;
 
 import com.example.duanshopdienthoai.DatabaseConnection;
@@ -63,8 +64,8 @@ public class ProductsAdminController {
                 String type = resultSet.getString("type");
 
                 ImageView productImage = new ImageView(urlImage);
-                productImage.setFitHeight(50);
-                productImage.setFitWidth(50);
+                productImage.setFitHeight(100);
+                productImage.setFitWidth(100);
 
                 Product product = new Product(productID,productImage,productName,quantity,price,type,description,stock);
                 productTableView.getItems().add(product);
@@ -145,7 +146,7 @@ public class ProductsAdminController {
                 stockButton.setOnAction((ActionEvent event) -> {
                     Product product = getTableView().getItems().get(getIndex());
                     if(ReUse.showConfirmation("Sản phẩm này đã hết hàng ?")) {
-                        stockProduct(product.getIDProduct());
+                        stockProduct(product.getIdProduct());
                     }
                     reLoad();
                 });
@@ -175,7 +176,7 @@ public class ProductsAdminController {
     private void stockProduct(int idProducts) {
         String query = "Update products Set stock = false WHERE productID = ?";
         try(Connection conn = DatabaseConnection.getConnection();
-        PreparedStatement ps = conn.prepareStatement(query)) {
+            PreparedStatement ps = conn.prepareStatement(query)) {
             ps.setInt(1,idProducts);
             ps.executeUpdate();
             System.out.println("Sản phẩm hết hàng : " + idProducts);

@@ -25,11 +25,11 @@ public class Product {
         this.stateProduct = stateProduct;
     }
 
-    public int getIDProduct() {
+    public int getIdProduct() {
         return idProduct;
     }
 
-    public void setIDProduct(int idProduct) {
+    public void setIdProduct(int idProduct) {
         this.idProduct = idProduct;
     }
 
