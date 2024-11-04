@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane prefWidth="3000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.duanshopdienthoai.Admin.Products.ProductsAdminController">
+   <content>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1025.0" style="-fx-background-color: white;">
+         <top>
+            <VBox alignment="CENTER" prefHeight="96.0" prefWidth="1025.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" prefHeight="58.0" prefWidth="1286.0" text="Quản Lý Sản Phẩm">
+                     <font>
+                        <Font name="System Bold" size="40.0" />
+                     </font>
+                  </Label>
+                  <Button mnemonicParsing="false" onAction="#addProduct" prefHeight="38.0" prefWidth="1031.0" style="-fx-background-color: white;" text="Thêm sản phẩm mới">
+                     <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Image/them.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </top>
+         <center>
+            <TableView fx:id="productTableView" maxHeight="1.7976931348623157E308" prefHeight="550.0" styleClass="button-no-border" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn fx:id="IDProducts" prefWidth="84.0" style="-fx-alignment: CENTER;" text="Mã Sản Phẩm" />
+                <TableColumn fx:id="ImageProducts" prefWidth="85.0" style="-fx-alignment: CENTER;" text="Ảnh" />
+                  <TableColumn fx:id="NameProducts" prefWidth="177.0" text="Tên Sản Phẩm" />
+                  <TableColumn fx:id="QuantityProducts" prefWidth="58.0" style="-fx-alignment: CENTER;" text="Số lượng" />
+                  <TableColumn fx:id="PriceProducts" prefWidth="95.0" style="-fx-alignment: CENTER_LEFT;" text="Giá" />
+                  <TableColumn fx:id="TypeProducts" prefWidth="86.0" style="-fx-alignment: CENTER;" text="Loại sản phẩm" />
+                  <TableColumn fx:id="DescriptionProducts" minWidth="0.0" prefWidth="165.0" text="Mô tả" />
+                  <TableColumn fx:id="StateProducts" prefWidth="65.0" style="-fx-alignment: Center;" text="Trạng Thái" />
+                  <TableColumn fx:id="ActionProducts" minWidth="0.0" prefWidth="180.0" style="-fx-alignment: CENTER;" text="Hành Động" />
+              </columns>
+               <BorderPane.margin>
+                  <Insets left="10.0" />
+               </BorderPane.margin>
+            </TableView>
+         </center>
+      </BorderPane>
+   </content>
+</ScrollPane>

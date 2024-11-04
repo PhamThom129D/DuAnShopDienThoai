@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: rgba(214,229,225,0.74);" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanshopdienthoai.Login.SignController">
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: rgba(214,229,225,0.4);" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanshopdienthoai.Login.SignController">
     <children>
         <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="500.0" styleClass="form-container">
             <children>
@@ -20,14 +20,14 @@
                     <font>
                         <Font name="System Bold Italic" size="12.0" />
                     </font></Label>
-                <HBox alignment="CENTER" prefHeight="80.0" prefWidth="900.0">
+                <HBox alignment="CENTER" prefHeight="80.0" prefWidth="424.0">
                     <children>
                         <ImageView fitHeight="42.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@./Image/avt.jpg" />
                             </image>
                         </ImageView>
-                        <TextField fx:id="username" maxWidth="250" prefHeight="40.0" prefWidth="200.0" promptText="Nhập tên đăng nhập" style="-fx-background-color: white;">
+                        <TextField fx:id="username" maxWidth="250" prefHeight="40.0" prefWidth="200.0" promptText="Nhập tên đăng nhập" style="-fx-background-color: transparent; -fx-border-color: transparent;">
                         </TextField>
                     </children>
                 </HBox>
@@ -38,7 +38,7 @@
                                 <Image url="@./Image/pass.jpg" />
                             </image>
                         </ImageView>
-                        <PasswordField fx:id="password" maxWidth="250" prefHeight="40.0" prefWidth="200.0" promptText="Nhập mật khẩu" style="-fx-background-color: white;" />
+                        <PasswordField fx:id="password" maxWidth="250" prefHeight="40.0" prefWidth="200.0" promptText="Nhập mật khẩu" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0">
@@ -48,7 +48,7 @@
                                 <Image url="@./Image/rePass.jpg" />
                             </image>
                         </ImageView>
-                        <PasswordField fx:id="rePassword" maxWidth="250" prefHeight="40.0" prefWidth="200.0" promptText="Nhập lại mật khẩu" style="-fx-background-color: white;" />
+                        <PasswordField fx:id="rePassword" maxWidth="250" prefHeight="40.0" prefWidth="200.0" promptText="Nhập lại mật khẩu" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0">
@@ -58,7 +58,7 @@
                                 <Image url="@./Image/phoneSign.jpg" />
                             </image>
                         </ImageView>
-                        <TextField fx:id="phoneNumber" maxWidth="250" prefHeight="40.0" prefWidth="200.0" promptText="Nhập số điện thoại" style="-fx-background-color: white;">
+                        <TextField fx:id="phoneNumber" maxWidth="250" prefHeight="40.0" prefWidth="200.0" promptText="Nhập số điện thoại" style="-fx-background-color: transparent; -fx-border-color: transparent;">
                         </TextField>
                     </children>
                 </HBox>
@@ -69,7 +69,7 @@
                                 <Image url="@./Image/diaChi.jpg" />
                             </image>
                         </ImageView>
-                        <TextField fx:id="address" maxWidth="250" prefHeight="40.0" prefWidth="200.0" promptText="Nhập địa chỉ" style="-fx-background-color: white;">
+                        <TextField fx:id="address" maxWidth="250" prefHeight="40.0" prefWidth="200.0" promptText="Nhập địa chỉ" style="-fx-background-color: transparent; -fx-border-color: transparent;">
                         </TextField>
                     </children>
                 </HBox>

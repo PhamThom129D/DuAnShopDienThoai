@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.duanshopdienthoai.Admin.Customer.UpdateCustomerAdminController" >
+    <children>
+        <TextField fx:id="customerNameField" promptText="Tên khách hàng" />
+        <TextField fx:id="customerPasswordField" promptText="Mật khẩu" />
+        <TextField fx:id="customerAddressField" promptText="Địa chỉ" />
+        <TextField fx:id="customerPhoneField" promptText="Số điện thoại" />
+
+        <HBox spacing="10">
+            <Label text="Trạng thái:" />
+            <RadioButton fx:id="activeRadioButton" text="Đang hoạt động"  />
+            <RadioButton fx:id="blockedRadioButton" text="Đã bị khóa" />
+        </HBox>
+
+        <Button text="Cập nhật" onAction="#updateCustomer" />
+    </children>
+</VBox>

@@ -54,7 +54,7 @@ public class LoginController {
 
     private String checkUser(String username, String password) throws SQLException {
         Connection conn = DatabaseConnection.getConnection();
-        String query = "select * from user where username=? and password=?";
+        String query = "select * from user where LOWER(username)=LOWER(?) and password=?";
         try(PreparedStatement ps = conn.prepareStatement(query)){
             ps.setString(1,username);
             ps.setString(2,password);

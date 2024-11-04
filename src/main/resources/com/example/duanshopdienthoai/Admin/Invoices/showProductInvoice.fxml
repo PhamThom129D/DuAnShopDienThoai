@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.duanshopdienthoai.Admin.Invoices.ShowProductInvoicesController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="63.0" prefWidth="600.0" text="Chi tiết hóa đơn">
+               <font>
+                  <Font name="System Bold" size="40.0" />
+               </font>
+            </Label>
+            <TableView fx:id="productInvoices" maxWidth="500.0" prefHeight="300.0" prefWidth="321.0">
+              <columns>
+                  <TableColumn fx:id="stt" prefWidth="41.33331298828125" style="-fx-alignment: center;" text="STT" />
+                <TableColumn fx:id="productName" prefWidth="161.33334350585938" style="-fx-alignment: center;" text="Tên Sản Phẩm" />
+                  <TableColumn fx:id="productPrice" prefWidth="106.66668701171875" style="-fx-alignment: center;" text="Giá" />
+                <TableColumn fx:id="productQuantity" minWidth="0.0" prefWidth="60.6666259765625" style="-fx-alignment: center;" text="Số lượng" />
+                  <TableColumn fx:id="productAmount" prefWidth="126.666748046875" style="-fx-alignment: center;" text="Thành Tiền" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

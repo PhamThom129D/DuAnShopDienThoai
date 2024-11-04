@@ -100,7 +100,6 @@ public class CartController {
                 }
             }
         });
-        checkBoxColumn.setCellValueFactory(cellData -> cellData.getValue().checkboxProperty());
         checkBoxColumn.setCellFactory(CheckBoxTableCell.forTableColumn(checkBoxColumn));
         checkBoxColumn.setEditable(true);
 
@@ -209,7 +208,7 @@ public class CartController {
                 .map(cartItem -> cartItem.getPrice().multiply(BigDecimal.valueOf(cartItem.getQuantity())))
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
 
-        totalLabel.setText(total.toString());
+        totalLabel.setText(total + " vnđ");
     }
 
     public void updateCheckBox(int cartID, boolean isChecked) throws SQLException {
