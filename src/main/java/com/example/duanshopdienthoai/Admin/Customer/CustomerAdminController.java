@@ -1,4 +1,4 @@
-package com.example.duanshopdienthoai.Admin;
+package com.example.duanshopdienthoai.Admin.Customer;
 
 import com.example.duanshopdienthoai.DatabaseConnection;
 import javafx.fxml.FXML;

@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.duanshopdienthoai.Admin.UpdateCustomerAdminController" >
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.duanshopdienthoai.Admin.Customer.UpdateCustomerAdminController" >
     <children>
         <TextField fx:id="customerNameField" promptText="Tên khách hàng" />
         <TextField fx:id="customerPasswordField" promptText="Mật khẩu" />

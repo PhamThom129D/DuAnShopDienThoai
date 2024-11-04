@@ -13,8 +13,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.*;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import static com.example.duanshopdienthoai.ReUse.showConfirmation;

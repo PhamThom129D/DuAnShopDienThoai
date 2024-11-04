@@ -1,4 +1,4 @@
-package com.example.duanshopdienthoai.Admin;
+package com.example.duanshopdienthoai.Admin.Products;
 
 import javafx.scene.image.ImageView;
 

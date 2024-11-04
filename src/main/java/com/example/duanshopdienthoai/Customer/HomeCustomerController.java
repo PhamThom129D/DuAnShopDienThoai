@@ -1,4 +1,4 @@
-package com.example.duanshopdienthoai.Customer.Product;
+package com.example.duanshopdienthoai.Customer;
 
 import com.example.duanshopdienthoai.DatabaseConnection;
 import com.example.duanshopdienthoai.Login.LoggedInUser;
@@ -8,7 +8,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
@@ -52,7 +51,7 @@ public class HomeCustomerController {
                 "JOIN Cart c ON p.productID = c.productID\n" +
                 "JOIN Cart_Order co ON c.cartID = co.cartID\n" +
                 "JOIN `Order` o ON co.orderID = o.orderID\n" +
-                "WHERE o.status = 1 \n" +
+                "WHERE o.status = 'Đã thanh toán' \n" +
                 "GROUP BY p.productID\n" +
                 "ORDER BY totalSold DESC\n" +
                 "LIMIT 5;\n";

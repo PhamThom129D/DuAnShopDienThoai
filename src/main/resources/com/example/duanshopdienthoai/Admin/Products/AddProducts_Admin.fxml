@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="439.0" prefWidth="501.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanshopdienthoai.Admin.AddProductsAdminController">
+<AnchorPane prefHeight="439.0" prefWidth="501.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanshopdienthoai.Admin.Products.AddProductsAdminController">
     <VBox alignment="CENTER" prefHeight="289.0" prefWidth="349.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
         <children>
          <Label alignment="CENTER" prefHeight="55.0" prefWidth="243.0" text="Thêm sản phẩm mới">

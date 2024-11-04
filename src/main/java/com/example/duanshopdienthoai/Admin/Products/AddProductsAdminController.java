@@ -1,4 +1,4 @@
-package com.example.duanshopdienthoai.Admin;
+package com.example.duanshopdienthoai.Admin.Products;
 
 import com.example.duanshopdienthoai.DatabaseConnection;
 import com.example.duanshopdienthoai.ReUse;

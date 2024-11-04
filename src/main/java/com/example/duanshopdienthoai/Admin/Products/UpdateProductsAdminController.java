@@ -1,4 +1,4 @@
-package com.example.duanshopdienthoai.Admin;
+package com.example.duanshopdienthoai.Admin.Products;
 
 import com.example.duanshopdienthoai.DatabaseConnection;
 import com.example.duanshopdienthoai.ReUse;
@@ -38,7 +38,6 @@ public class UpdateProductsAdminController {
     private RadioButton OutOfStock;
 
     private Product product;
-private Map<String , Image> imageCache = new HashMap<>();
     public void initialize() {
         typeProduct.getItems().addAll("Samsung", "iPhone", "Nokia","Opppo","Xiaomi");
         typeProduct.getSelectionModel().selectFirst();

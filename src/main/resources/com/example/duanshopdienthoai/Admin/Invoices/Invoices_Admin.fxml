@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.duanshopdienthoai.Admin.Invoices.InvoiceAdminController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanshopdienthoai.Admin.Invoices.InvoiceAdminController">
    <children>
       <VBox alignment="TOP_CENTER" layoutX="16.0" prefHeight="784.0" prefWidth="1025.0" spacing="20.0">
          <children>
@@ -21,12 +20,12 @@
               <columns>
                 <TableColumn fx:id="invoiceID" prefWidth="75.0" style="-fx-alignment: CENTER;" text="Mã Hóa Đơn" />
                   <TableColumn fx:id="orderID" prefWidth="83.0" style="-fx-alignment: CENTER;" text="Mã Đơn Hàng" />
-                  <TableColumn fx:id="orderDate" prefWidth="113.0" style="-fx-alignment: CENTER;" text="Ngày Đặt Hàng" />
+                  <TableColumn fx:id="orderDate" prefWidth="120.0" style="-fx-alignment: CENTER;" text="Ngày Đặt Hàng" />
                   <TableColumn fx:id="paymentDate" prefWidth="120.0" style="-fx-alignment: CENTER;" text="Ngày Thanh Toán" />
-                  <TableColumn fx:id="paymentMethod" prefWidth="151.0" style="-fx-alignment: CENTER;" text="Phương Thức Thanh Toán" />
-                  <TableColumn fx:id="total" style="-fx-alignment: CENTER;" text="Tổng Tiền" />
-                  <TableColumn fx:id="status" prefWidth="150.0" style="-fx-alignment: CENTER;" text="Trạng thái" />
-                  <TableColumn fx:id="action" prefWidth="300.0" style="-fx-alignment: CENTER;" text="Hành Động" />
+                  <TableColumn fx:id="paymentMethod" prefWidth="152.0" style="-fx-alignment: CENTER;" text="Phương Thức Thanh Toán" />
+                  <TableColumn fx:id="total" prefWidth="100.0" style="-fx-alignment: CENTER;" text="Tổng Tiền" />
+                  <TableColumn fx:id="status" prefWidth="120.0" style="-fx-alignment: CENTER;" text="Trạng thái" />
+                  <TableColumn fx:id="action" prefWidth="251.0" style="-fx-alignment: CENTER;" text="Hành Động" />
               </columns>
             </TableView>
          </children>

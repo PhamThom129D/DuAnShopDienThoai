@@ -1,4 +1,4 @@
-package com.example.duanshopdienthoai.Admin;
+package com.example.duanshopdienthoai.Admin.Customer;
 
 public class  Customer {
     private int customerID;

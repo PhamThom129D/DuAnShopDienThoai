@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="417.0" prefWidth="437.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.duanshopdienthoai.Admin.UpdateProductsAdminController">
+            fx:controller="com.example.duanshopdienthoai.Admin.Products.UpdateProductsAdminController">
     <VBox alignment="CENTER" prefHeight="417.0" prefWidth="437.0" spacing="10.0">
         <children>
          <Label alignment="CENTER" prefHeight="17.0" prefWidth="243.0" text="Cập nhật thông tin sản phẩm">

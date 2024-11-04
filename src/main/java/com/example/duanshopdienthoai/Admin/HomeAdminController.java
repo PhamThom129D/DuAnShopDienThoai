@@ -16,11 +16,11 @@ public class HomeAdminController {
     private AnchorPane contentAdmin;
 
     public void showCustomer() throws IOException {
-        changeSceneAdmin("Customer_Admin.fxml");
+        changeSceneAdmin("Customer/Customer_Admin.fxml");
     }
 
     public void showProducts() throws IOException {
-        changeSceneAdmin("Products_Admin.fxml");
+        changeSceneAdmin("Products/Products_Admin.fxml");
     }
 
     public void showUser() throws IOException {
@@ -28,7 +28,7 @@ public class HomeAdminController {
     }
 
     public void showInvoice() throws IOException {
-        changeSceneAdmin("Invoices_Admin.fxml");
+        changeSceneAdmin("Invoices/Invoices_Admin.fxml");
     }
 
     public void showStatistics() throws IOException {

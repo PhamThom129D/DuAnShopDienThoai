@@ -1,5 +1,5 @@
 
-package com.example.duanshopdienthoai.Admin;
+package com.example.duanshopdienthoai.Admin.Products;
 
 import com.example.duanshopdienthoai.DatabaseConnection;
 import com.example.duanshopdienthoai.ReUse;
@@ -67,7 +67,6 @@ public class ProductsAdminController {
 
                 Product product = new Product(productID,productImage,productName,quantity,price,type,description,stock);
                 productTableView.getItems().add(product);
-                System.out.println(productID);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

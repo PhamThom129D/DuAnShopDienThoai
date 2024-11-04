@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/22"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanshopdienthoai.Admin.CustomerAdminController">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanshopdienthoai.Admin.Customer.CustomerAdminController">
    <children>
       <BorderPane prefWidth="1020.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
          <top>

@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 
 <ScrollPane prefWidth="3000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.duanshopdienthoai.Admin.ProductsAdminController">
+            fx:controller="com.example.duanshopdienthoai.Admin.Products.ProductsAdminController">
    <content>
       <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1025.0" style="-fx-background-color: white;">
          <top>
@@ -28,7 +28,7 @@
                      <graphic>
                         <ImageView fitHeight="45.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Image/them.jpg" />
+                              <Image url="@../../Image/them.jpg" />
                            </image>
                         </ImageView>
                      </graphic>
