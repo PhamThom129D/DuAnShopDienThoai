@@ -107,6 +107,24 @@ public class InvoiceAdminController {
                     showProduct(invoiceItem);
                 });
                 payStatus.getItems().addAll("Chưa thanh toán", "Đã thanh toán", "Hủy đơn");
+                payStatus.setValue("Trạng thái đơn hàng");
+                payStatus.setOnAction(e -> {
+                    String selectedStatus = payStatus.getValue();
+                    InvoiceItem invoiceItem = getTableView().getItems().get(getIndex());
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Xác nhận thay đổi trạng thái");
+                    alert.setHeaderText("Bạn có chắc chắn muốn thay đổi trạng thái đơn hàng sang " + selectedStatus + "?");
+                    alert.setContentText("Nhấn OK để xác nhận hoặc Cancel để hủy.");
+
+                    alert.showAndWait().ifPresent(response -> {
+                        if (response == ButtonType.OK) {
+                            updateStatusOrder(invoiceItem.getOrderID(), selectedStatus);
+                            payStatus.setValue(selectedStatus);
+                            reload();
+                        }
+                    });
+                });
+
             }
             @Override
             protected void updateItem(String item, boolean empty) {
@@ -114,17 +132,7 @@ public class InvoiceAdminController {
                 if (empty || getTableView() == null) {
                     setGraphic(null);
                 } else {
-                    InvoiceItem invoiceItem = getTableView().getItems().get(getIndex());
-                    payStatus.setValue(invoiceItem.getPaid());
                     setGraphic(new HBox(payStatus, showProductButton));
-
-                    payStatus.setOnAction(e -> {
-                        String selectedStatus = payStatus.getValue();
-                            if (ReUse.showConfirmation("Bạn có chắc chắn chuyển trạng thái đơn hàng sang " + selectedStatus + "?")) {
-                                updateStatusOrder(invoiceItem.getOrderID(), selectedStatus);
-                                reload();
-                            }
-                    });
                 }
             }
 

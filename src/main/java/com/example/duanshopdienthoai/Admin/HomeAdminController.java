@@ -32,7 +32,7 @@ public class HomeAdminController {
     }
 
     public void showStatistics() throws IOException {
-        changeSceneAdmin("Statistics_Admin.fxml");
+        changeSceneAdmin("Statistics/Statistics_Admin.fxml");
     }
 
     public void goBack() throws IOException {

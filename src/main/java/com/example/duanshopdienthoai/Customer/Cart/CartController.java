@@ -184,8 +184,6 @@ public class CartController {
         updateTotal();
         System.out.println("Xóa thành công : " + cartID);
     }
-
-
     public void updateQuantityCart(int cartID, int quantity) throws SQLException {
         String query = "UPDATE cart SET quantity=? WHERE cartID=?";
         try (Connection connection = DatabaseConnection.getConnection();
@@ -201,7 +199,6 @@ public class CartController {
             e.printStackTrace();
         }
     }
-
     public void updateTotal() {
         BigDecimal total = cartTable.getItems().stream()
                 .filter(CartItem::isCheckbox)
@@ -210,7 +207,6 @@ public class CartController {
 
         totalLabel.setText(total + " vnđ");
     }
-
     public void updateCheckBox(int cartID, boolean isChecked) throws SQLException {
         String query = "UPDATE cart SET checkbox = ? WHERE cartID = ?";
         try (Connection connection = DatabaseConnection.getConnection();
@@ -225,11 +221,9 @@ public class CartController {
             e.printStackTrace();
         }
     }
-
     public void goBack() throws IOException {
         Main.changeScene("Customer/HomeCustomer.fxml");
     }
-
     public void handlePayment(ActionEvent event) throws SQLException, IOException {
         updateCondition();
         boolean hasSelectedItems = cartTable.getItems().stream()
@@ -251,7 +245,6 @@ public class CartController {
             showAlert("Vui lòng chọn ít nhất một sản phẩm để đặt hàng.");
         }
     }
-
     private int getProductIDFromCart(int cartID) throws SQLException {
         String query = "SELECT productID FROM cart WHERE cartID = ?";
         Connection connection = DatabaseConnection.getConnection();
