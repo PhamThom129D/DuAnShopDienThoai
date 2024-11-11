@@ -32,17 +32,15 @@ public class HomeCustomerController {
     private TextField searchTextFile;
     @FXML
     private Label countCart;
-
     private Connection conn;
+    @FXML
+    public void initialize() throws SQLException {
+        loadProducts();
+    }
 
     public HomeCustomerController() throws SQLException {
         Connection connection = DatabaseConnection.getConnection();
         conn = connection;
-    }
-
-    @FXML
-    public void initialize() throws SQLException {
-        loadProducts();
     }
 
     private void loadProducts() throws SQLException {
@@ -143,38 +141,63 @@ public class HomeCustomerController {
         }
     }
 
-    private void setCountCart(){
+    private String setCountCart() {
         String query = "SELECT COUNT(*) as SoLuongSanPham FROM Cart where userID = ? and checkbox = 0";
-        try(PreparedStatement ps = conn.prepareStatement(query)){
+        String count = null;
+        try (PreparedStatement ps = conn.prepareStatement(query)) {
             ps.setInt(1, LoggedInUser.getInstance().getUserID());
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
-                countCart.setText(String.valueOf(rs.getInt("SoLuongSanPham")));
+            while (rs.next()) {
+                count = rs.getString("SoLuongSanPham");
             }
-        }catch (SQLException e) {
+            countCart.setText(count);
+        } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Đếm số lượng sản phẩm lỗi");
         }
+        return count;
     }
-
+//      Thanh menu trên
+    public void showHome(ActionEvent event) throws IOException, SQLException {
+        Main.changeScene("Customer/HomeCustomer.fxml");
+    }
     public void searchProduct(ActionEvent event) {
-        String searchText = searchTextFile.getText();
+        String searchText = searchTextFile.getText().trim();
+        if(searchText.isEmpty()){
+            ReUse.showAlert("Vui lòng nhập từ khóa tìm kiếm");
+            return;
+        };
         showProduct.getChildren().clear();
-        String querySearchProduct = "SELECT * FROM products WHERE productName LIKE ?";
+        String querySearchProduct = "SELECT * FROM products WHERE productName LIKE ? or description LIKE ? or type LIKE ?";
         try (PreparedStatement pstmt = conn.prepareStatement(querySearchProduct)) {
             pstmt.setString(1, "%" + searchText + "%");
+            pstmt.setString(2, "%" + searchText + "%");
+            pstmt.setString(3, "%" + searchText + "%");
             try (ResultSet rs3 = pstmt.executeQuery()) {
+                if(!rs3.next()){
+                    ReUse.showAlert("Không tìm thấy sản phẩm nào với từ khóa : " + searchText);
+                    return;
+                }
                 loadProductFromDatabase(showProduct, rs3);
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            ReUse.showAlert("Lỗi khi tìm kiếm sản phẩm");
         }
     }
-
-    public void showHome(ActionEvent event) throws IOException, SQLException {
-        Main.changeScene("Customer/HomeCustomer.fxml");
+    public void showInvoice() throws IOException {Main.changeScene("Customer/Invoice.fxml");
     }
-
+    public void showAccount() throws IOException {
+        Main.changeScene("Customer/AccountCustomer.fxml");
+    }
+    public void showCart() throws IOException {
+        if(countCart.getText().equals("0")) {
+            ReUse.showAlert("Không có sản phẩm nào trong giỏ hàng .");
+        }else{
+            Main.changeScene("Customer/Cart.fxml");
+        }
+    }
+//      Thanh menu bên
     public void showProductType(String type){
         showProduct.getChildren().clear();
         String queryProductType = "SELECT * FROM products WHERE type = ?";
@@ -187,7 +210,6 @@ public class HomeCustomerController {
             e.printStackTrace();
         }
     }
-
     public void showIphone() {
         showProductType("Iphone");
     }
@@ -203,11 +225,14 @@ public class HomeCustomerController {
     public void showNokia() {
         showProductType("Nokia");
     }
-    public void showAccount() throws IOException {
-        Main.changeScene("Customer/AccountCustomer.fxml");
+    public void showDiscount(ActionEvent event) {
+        ReUse.showAlert("Đang hoàn thiện");
     }
-    public void showCart() throws IOException {
-        Main.changeScene("Customer/Cart.fxml");
+    public void showNews(ActionEvent event) {
+        ReUse.showAlert("Đang hoàn thiện");
+    }
+    public void showRecruitment(ActionEvent event) {
+        ReUse.showAlert("Đang hoàn thiện");
     }
     public void goOut() throws IOException {
         if(showConfirmation("Bạn muốn đăng xuất khỏi hệ thống?")) {
@@ -215,19 +240,6 @@ public class HomeCustomerController {
             Main.changeScene("Login.fxml");
         }
     }
-    public void showInvoice() throws IOException {
-        Main.changeScene("Customer/Invoice.fxml");
-    }
 
-    public void showDiscount(ActionEvent event) {
-        ReUse.showAlert("Đang hoàn thiện");
-    }
 
-    public void showNews(ActionEvent event) {
-        ReUse.showAlert("Đang hoàn thiện");
-    }
-
-    public void showRecruitment(ActionEvent event) {
-        ReUse.showAlert("Đang hoàn thiện");
-    }
 }

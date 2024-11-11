@@ -15,6 +15,7 @@ public class ReUse {
     public static void showAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText(message);
+        alert.setContentText("Nhấn OK để xác nhận hoặc Cancel để hủy.");
         alert.show();
         Timeline timeline = new Timeline(new KeyFrame(
                 Duration.millis(2000),

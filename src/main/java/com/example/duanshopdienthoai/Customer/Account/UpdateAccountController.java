@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import static com.example.duanshopdienthoai.ReUse.showAlert;
 
@@ -16,30 +17,52 @@ public class UpdateAccountController {
     @FXML
     private TextField usernameField;
     @FXML
+    private TextField passwordField;
+    @FXML
     private TextField phonenumberField;
     @FXML
     private TextField addressField;
 
+    @FXML
+    public void initialize() throws SQLException {
+        setInfoAccount();
+    }
+    public void setInfoAccount() throws SQLException {
+        Connection conn = DatabaseConnection.getConnection();
+        String query = "SELECT * FROM user WHERE userID = ?";
+        PreparedStatement preparedStatement = conn.prepareStatement(query);
+        preparedStatement.setInt(1, LoggedInUser.getInstance().getUserID());
+        ResultSet rs = preparedStatement.executeQuery();
+        while(rs.next()) {
+            usernameField.setText(rs.getString("username"));
+            passwordField.setText(rs.getString("password"));
+            phonenumberField.setText(rs.getString("phonenumber"));
+            addressField.setText(rs.getString("address"));
+        }
+        preparedStatement.executeQuery();
+    }
 
-    public void handleEdit(String username , String phonenumber , String address) throws SQLException {
+    public void handleSave(String username,String password , String phonenumber , String address) throws SQLException {
         Connection connection = DatabaseConnection.getConnection();
-        String query = "Update user set username = ?,phoneNumber=?,address=? where userID = ?";
+        String query = "Update user set username = ?,password=?,phoneNumber=?,address=? where userID = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, username);
-        preparedStatement.setString(2, phonenumber);
-        preparedStatement.setString(3, address);
-        preparedStatement.setInt(4, LoggedInUser.getInstance().getUserID());
+        preparedStatement.setString(2, password);
+        preparedStatement.setString(3, phonenumber);
+        preparedStatement.setString(4, address);
+        preparedStatement.setInt(5, LoggedInUser.getInstance().getUserID());
         preparedStatement.executeUpdate();
     }
-//ahha
-    public void handleSave(ActionEvent event) throws SQLException, IOException {
+
+    public void handleEdit(ActionEvent event) throws SQLException, IOException {
         String username = usernameField.getText();
+        String password = passwordField.getText();
         String phonenumber = phonenumberField.getText();
         String address = addressField.getText();
         if (username.equals("") || phonenumber.equals("") || address.equals("")) {
             showAlert("Không được để trống");
         }else {
-            handleEdit(username,phonenumber,address);
+            handleSave(username,password,phonenumber,address);
             showAlert("Cập nhật thành công");
             goback(event);
         }
