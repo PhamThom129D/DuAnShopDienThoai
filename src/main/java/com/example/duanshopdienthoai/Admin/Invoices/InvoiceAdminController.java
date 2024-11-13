@@ -132,7 +132,13 @@ public class InvoiceAdminController {
                 if (empty || getTableView() == null) {
                     setGraphic(null);
                 } else {
-                    setGraphic(new HBox(payStatus, showProductButton));
+                    InvoiceItem invoiceItem = getTableView().getItems().get(getIndex());
+                    String status = invoiceItem.getPaid();
+                    if (("Chưa thanh toán").equals(status)) {
+                        setGraphic(new HBox(payStatus, showProductButton));
+                    } else {
+                        setGraphic(showProductButton);
+                    }
                 }
             }
 

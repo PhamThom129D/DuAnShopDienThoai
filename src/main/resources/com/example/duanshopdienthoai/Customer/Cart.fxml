@@ -17,15 +17,15 @@
          <Image url="@.././Image/thoat.jpg" />
       </image>
    </ImageView>
-    <TableView fx:id="cartTable" prefWidth="1280.0" styleClass="table-view">
+    <TableView fx:id="cartTable" prefHeight="620.0" prefWidth="1280.0" styleClass="table-view">
         <columns>
-            <TableColumn fx:id="checkBoxColumn" prefWidth="105.77778708934784" text="Chọn sản phẩm" />
-            <TableColumn fx:id="idColumn" minWidth="0.0" prefWidth="54.888877868652344" text="STT" />
-            <TableColumn fx:id="nameColumn" prefWidth="129.7777862548828" text="Tên sản phẩm" />
-            <TableColumn fx:id="quantityColumn" prefWidth="117.77786254882812" text="Số lượng" />
-            <TableColumn fx:id="priceColumn" prefWidth="132.22213745117188" text="Giá " />
-            <TableColumn fx:id="amountColumn" prefWidth="186.0" text="Thành tiền" />
-            <TableColumn fx:id="actionColumn" prefWidth="189.33331298828125" text="Hành động" />
+            <TableColumn fx:id="checkBoxColumn" prefWidth="160.0" text="Chọn sản phẩm" />
+            <TableColumn fx:id="idColumn" minWidth="0.0" style="-fx-alignment: CENTER;" text="STT" />
+            <TableColumn fx:id="nameColumn" prefWidth="290.0" style="-fx-alignment: CENTER_LEFT;" text="Tên sản phẩm" />
+            <TableColumn fx:id="quantityColumn" prefWidth="150.0" styleClass=".hbox-product" text="Số lượng" />
+            <TableColumn fx:id="priceColumn" prefWidth="200.0" style="-fx-alignment: CENTER;" styleClass=".hbox-product" text="Giá " />
+            <TableColumn fx:id="amountColumn" prefWidth="280.0" style="-fx-alignment: CENTER;" styleClass=".hbox-product" text="Thành tiền" />
+            <TableColumn fx:id="actionColumn" prefWidth="156.0" style="-fx-alignment: center center;" text="Hành động" />
         </columns>
     </TableView>
     <HBox alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="61.0" prefWidth="1280.0" spacing="10">
@@ -39,7 +39,7 @@
                         <Font name="System Italic" size="20.0" />
                     </font>
                 </Label>
-                <Label fx:id="totalLabel" text="0">
+                <Label fx:id="totalLabel" text="0 vnd">
                     <font>
                         <Font name="System Bold" size="20.0" />
                     </font></Label>

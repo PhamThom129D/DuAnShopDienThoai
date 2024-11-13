@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.AreaChart?>
-<?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.StackedAreaChart?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -49,14 +48,14 @@
                                         <DatePicker layoutX="10.0" layoutY="10.0" prefWidth="200.0" promptText="Ngày kết thúc" />
                                     </children>
                                 </HBox>
-                                <AreaChart prefHeight="318.0" prefWidth="903.0">
-                                    <xAxis>
-                                        <CategoryAxis fx:id="day" label="Thời gian" side="BOTTOM" />
-                                    </xAxis>
-                                    <yAxis>
-                                        <NumberAxis fx:id="total" label="Doanh số" side="LEFT" />
-                                    </yAxis>
-                                </AreaChart>
+                        <StackedAreaChart>
+                          <xAxis>
+                            <NumberAxis label="Thời gian" side="BOTTOM" upperBound="10.0" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis label="Doanh số" side="LEFT" />
+                          </yAxis>
+                        </StackedAreaChart>
                             </children>
                         </VBox>
                     </children>

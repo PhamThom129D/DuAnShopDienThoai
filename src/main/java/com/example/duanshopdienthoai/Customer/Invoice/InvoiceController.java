@@ -4,6 +4,7 @@ import com.example.duanshopdienthoai.DatabaseConnection;
 import com.example.duanshopdienthoai.Login.LoggedInUser;
 import com.example.duanshopdienthoai.Main;
 import com.example.duanshopdienthoai.ReUse;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -76,6 +77,8 @@ public class InvoiceController {
         productTable.getColumns().addAll(productNameCol, quantityCol, amountCol);
         productTable.setItems(productList);
 
+        productTable.setFixedCellSize(25);
+        productTable.prefHeightProperty().bind(Bindings.size(productTable.getItems()).multiply(productTable.getFixedCellSize()).add(30));
         ScrollPane scrollPane = new ScrollPane(productTable);
         scrollPane.setFitToWidth(true);
         scrollPane.setPrefHeight(200);
@@ -138,9 +141,13 @@ public class InvoiceController {
         Label paymentDateLabel = new Label("Ngày thanh toán: " + paymentDate);
         Label paymentMethodLabel = new Label("Phương thức thanh toán: " + paymentMethod);
         Label totalPriceLabel = new Label("Tổng tiền: " + totalPrice + " vnđ");
-        Button productButton = new Button("Hiển thị sản phẩm");
-        VBox productVBox = new VBox(10);
+        Button productButton = new Button("Chi tiết đơn hàng");
         Button cancelButton = new Button("Hủy đơn");
+        HBox buttonBox = new HBox(20);
+        buttonBox.setAlignment(Pos.CENTER_LEFT);
+        buttonBox.getChildren().addAll(productButton, cancelButton);
+
+        VBox productVBox = new VBox(10);
         productVBox.setAlignment(Pos.TOP_LEFT);
         productButton.setOnAction(event -> {
             productDisplay(orderID, productVBox, productButton);
@@ -158,7 +165,7 @@ public class InvoiceController {
                     throw new RuntimeException(e);
                 }
         });
-        vBox.getChildren().addAll(invoiceIDLabel, orderIDLabel, orderDateLabel, paymentDateLabel, paymentMethodLabel,  totalPriceLabel, productButton,cancelButton,productVBox);
+        vBox.getChildren().addAll(invoiceIDLabel, orderIDLabel, orderDateLabel, paymentDateLabel, paymentMethodLabel,  totalPriceLabel, buttonBox,productVBox);
 
         return vBox;
     }
@@ -169,6 +176,7 @@ public class InvoiceController {
             showProductFromOrder(orderID,LoggedInUser.getInstance().getUserID(), productVBox);
             productButton.setText("Ẩn sản phẩm");
         }else {
+            productButton.setText("Hiển thị sản phẩm");
             productVBox.setVisible(false);
             productVBox.getChildren().clear();
         }

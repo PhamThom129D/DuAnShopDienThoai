@@ -8,9 +8,12 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -72,11 +75,13 @@ public class CartController {
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
         actionColumn.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(null));
         actionColumn.setCellFactory(col -> new TableCell<CartItem, Void>() {
-            private final Button buttonDelete = new Button("Xóa khỏi giỏ hàng");
+            String urlImage = getClass().getResource("/com/example/duanshopdienthoai/Image/xoa.png").toExternalForm();
+            private final ImageView imageViewDelete = new ImageView(new Image(urlImage));
+
             {
-                buttonDelete.setOnAction(e -> {
+                imageViewDelete.setOnMouseClicked(e -> {
                     CartItem cartItem = getTableView().getItems().get(getIndex());
-                    if(showConfirmation("Bạn có muốn xóa sản phẩm khỏi giỏ hàng ?")) {
+                    if (showConfirmation("Bạn có muốn xóa sản phẩm khỏi giỏ hàng ?")) {
                         try {
                             handleDelete(cartItem.getCartID());
                         } catch (SQLException ex) {
@@ -85,9 +90,8 @@ public class CartController {
                     }
                     cartTable.refresh();
                 });
-                HBox buttonBox = new HBox(buttonDelete);
-                buttonBox.setPadding(new Insets(10, 10, 10, 10));
-                setGraphic(buttonBox);
+                imageViewDelete.setFitWidth(30);
+                imageViewDelete.setFitHeight(30);
             }
 
             @Override
@@ -96,10 +100,14 @@ public class CartController {
                 if (empty) {
                     setGraphic(null);
                 } else {
-                    setGraphic(new HBox(buttonDelete));
+                    HBox buttonBox = new HBox(imageViewDelete);
+                    buttonBox.setAlignment(Pos.CENTER);
+                    buttonBox.setPadding(new Insets(5));
+                    setGraphic(buttonBox);
                 }
             }
         });
+
         checkBoxColumn.setCellFactory(CheckBoxTableCell.forTableColumn(checkBoxColumn));
         checkBoxColumn.setEditable(true);
 
@@ -142,6 +150,7 @@ public class CartController {
         quantityColumn.setCellFactory(col -> new TableCell<CartItem, Integer>() {
             private final Spinner<Integer> spinner = new Spinner<>();
             {spinner.setEditable(true);}
+
             @Override
             protected void updateItem(Integer item, boolean empty) {
                 super.updateItem(item, empty);
@@ -149,7 +158,10 @@ public class CartController {
                     setGraphic(null);
                 } else {
                     CartItem cartItem = getTableView().getItems().get(getIndex());
-                    SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100, cartItem.getQuantity());
+
+                    int stockQuantity = getProductStockQuantity(cartItem.getName());
+
+                    SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, stockQuantity, cartItem.getQuantity());
                     spinner.setValueFactory(valueFactory);
 
                     spinner.valueProperty().addListener((observable, oldValue, newValue) -> {
@@ -164,13 +176,34 @@ public class CartController {
                     setGraphic(spinner);
                 }
             }
+
+
         });
+
 
         amountColumn.setCellValueFactory(cellData -> {
             CartItem cartItem = cellData.getValue();
             BigDecimal amount = cartItem.getPrice().multiply(BigDecimal.valueOf(cartItem.getQuantity()));
             return new ReadOnlyObjectWrapper<>(amount);
         });
+    }
+    private int getProductStockQuantity(String name) {
+        String query = "SELECT quantity FROM products WHERE productName = ?";
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setString(1, name);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    return resultSet.getInt("quantity");
+                } else {
+                    return 0;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return -1;
+        }
     }
 
     private void handleDelete(int cartID) throws SQLException {

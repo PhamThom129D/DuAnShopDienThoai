@@ -14,11 +14,11 @@ import java.sql.SQLException;
 
 public class AccountCustomerController {
     @FXML
-    private Label usernameAccount;
+    Label usernameAccount;
     @FXML
-    private Label phonenumberAccount;
+    Label phonenumberAccount;
     @FXML
-    private Label addressAccount;
+    Label addressAccount;
     @FXML
     private Label stateAccount;
     @FXML

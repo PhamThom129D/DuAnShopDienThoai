@@ -163,7 +163,7 @@ public class ProductsAdminController {
 
                     if(!product.getStateProduct()){
                         setGraphic(updateButton);
-                    }else {
+                    }else { //"hellu"
                         setGraphic(new HBox(5,stockButton,updateButton));
                     }
                 }
