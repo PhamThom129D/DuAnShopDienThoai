@@ -7,16 +7,35 @@
     -fx-border-width: 1px;
 }
 .form-background {
-    -fx-background-color: rgba(173, 216, 230, 0.7);
-    -fx-background-radius: 15; /* Bo góc */
-    -fx-border-radius: 15; /* Bo góc viền */
-}
-.form-container {
-    -fx-background-color: rgb(255, 255, 255);
-    -fx-background-radius: 15; /* Bo góc */
-    -fx-border-radius: 15; /* Bo góc viền */
+    -fx-background-image: url("https://i.pinimg.com/736x/87/f8/77/87f8770b4e7196367919fffc525d544e.jpg");
+
+    /* Căn giữa hình ảnh */
+    -fx-background-position: center center;
+
+    /* Làm nét hình ảnh và làm cho hình ảnh phủ đầy vùng chứa */
+    -fx-background-size: cover;
+
+    /* Nếu bạn muốn giữ tỷ lệ và không cắt bớt hình ảnh, sử dụng contain */
+    /* -fx-background-size: contain; */
 }
 
+.form-container {
+    -fx-background-color: rgba(52, 152, 219, 0.85);
+    -fx-background-radius: 15; /* Bo góc */
+    -fx-border-radius: 15; /* Bo góc viền */
+}
+.sign{
+    -fx-background-image: url("https://i.pinimg.com/736x/97/6b/73/976b73f3d42c09f6295de85b2545e3ee.jpg");
+
+    /* Căn giữa hình ảnh */
+    -fx-background-position: center center;
+
+    /* Làm nét hình ảnh và làm cho hình ảnh phủ đầy vùng chứa */
+    -fx-background-size: cover;
+
+    /* Nếu bạn muốn giữ tỷ lệ và không cắt bớt hình ảnh, sử dụng contain */
+    /* -fx-background-size: contain; */
+}
 
 .textfield-search {
     -fx-background-color: #ffffff; /* Nền trắng */
@@ -42,9 +61,9 @@
     -fx-background-color: #ffffff;
     -fx-padding: 10; /* Khoảng cách bên trong */
     -fx-border-color: #000000; /* Màu viền đen */
-    -fx-border-width: 1; /* Độ dày viền */
-    -fx-border-radius: 7; /* Bo góc viền */
-    -fx-background-radius: 5; /* Bo góc nền */
+    -fx-border-width: 2; /* Độ dày viền */
+    -fx-border-radius: 20; /* Bo góc viền */
+    -fx-background-radius: 20; /* Bo góc nền */
 }
 .button-no-border {
     -fx-background-color: transparent; /* Nền trong suốt */

@@ -49,7 +49,7 @@ public class HomeCustomerController {
                 "JOIN Cart c ON p.productID = c.productID\n" +
                 "JOIN Cart_Order co ON c.cartID = co.cartID\n" +
                 "JOIN `Order` o ON co.orderID = o.orderID\n" +
-                "WHERE o.status = 'Đã thanh toán' \n" +
+                "WHERE o.status = 'Đã thanh toán' and p.quantity > 0 \n" +
                 "GROUP BY p.productID\n" +
                 "ORDER BY totalSold DESC\n" +
                 "LIMIT 5;\n";
@@ -224,15 +224,6 @@ public class HomeCustomerController {
     }
     public void showNokia() {
         showProductType("Nokia");
-    }
-    public void showDiscount(ActionEvent event) {
-        ReUse.showAlert("Đang hoàn thiện");
-    }
-    public void showNews(ActionEvent event) {
-        ReUse.showAlert("Đang hoàn thiện");
-    }
-    public void showRecruitment(ActionEvent event) {
-        ReUse.showAlert("Đang hoàn thiện");
     }
     public void goOut() throws IOException {
         if(showConfirmation("Bạn muốn đăng xuất khỏi hệ thống?")) {

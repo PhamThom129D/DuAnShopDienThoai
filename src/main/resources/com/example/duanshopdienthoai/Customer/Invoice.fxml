@@ -5,6 +5,7 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
@@ -21,19 +22,31 @@
       </HBox>
         <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1283.0" styleClass="tab-header-background" tabClosingPolicy="UNAVAILABLE">
             <tabs>
-                <Tab style="-fx-alignment: CENTER;" text="Chờ xác nhận">
-                    <ScrollPane style="-fx-alignment: CENTER;">
-                        <VBox fx:id="waitVBox" alignment="CENTER" prefWidth="500.0" VBox.vgrow="ALWAYS" />
+                <Tab text="Chờ xác nhận">
+                    <ScrollPane>
+                  <AnchorPane VBox.vgrow="ALWAYS">
+                     <children>
+                              <VBox fx:id="waitVBox" alignment="CENTER" layoutX="145.0" prefWidth="580.0" spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="20.0" />
+                     </children>
+                  </AnchorPane>
                     </ScrollPane>
                 </Tab>
-                <Tab style="-fx-alignment: CENTER;" text="Đã xác nhận">
-                    <ScrollPane style="-fx-alignment: Center;">
-                        <VBox fx:id="confirmVBox" alignment="CENTER" prefWidth="500.0" style="-fx-background-color: white;" VBox.vgrow="ALWAYS" />
+                <Tab text="Đã xác nhận">
+                    <ScrollPane>
+                  <AnchorPane VBox.vgrow="ALWAYS">
+                     <children>
+                              <VBox fx:id="confirmVBox" alignment="CENTER" prefWidth="600.0" spacing="20.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="20.0" />
+                     </children>
+                  </AnchorPane>
                     </ScrollPane>
                 </Tab>
-                <Tab style="-fx-alignment: CENTER;" text="Đã hủy">
-                    <ScrollPane style="-fx-alignment: center;">
-                        <VBox fx:id="cancelVBox" alignment="CENTER" prefWidth="500.0" style="-fx-background-color: white;" VBox.vgrow="ALWAYS" />
+                <Tab text="Đã hủy">
+                    <ScrollPane>
+                  <AnchorPane VBox.vgrow="ALWAYS">
+                     <children>
+                              <VBox fx:id="cancelVBox" alignment="CENTER" prefWidth="600.0" spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="20.0" />
+                     </children>
+                  </AnchorPane>
                     </ScrollPane>
                 </Tab>
 

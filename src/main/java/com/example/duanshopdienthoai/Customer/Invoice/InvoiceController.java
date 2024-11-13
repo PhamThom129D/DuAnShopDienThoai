@@ -4,6 +4,7 @@ import com.example.duanshopdienthoai.DatabaseConnection;
 import com.example.duanshopdienthoai.Login.LoggedInUser;
 import com.example.duanshopdienthoai.Main;
 import com.example.duanshopdienthoai.ReUse;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -76,6 +77,8 @@ public class InvoiceController {
         productTable.getColumns().addAll(productNameCol, quantityCol, amountCol);
         productTable.setItems(productList);
 
+        productTable.setFixedCellSize(25);
+        productTable.prefHeightProperty().bind(Bindings.size(productTable.getItems()).multiply(productTable.getFixedCellSize()).add(30));
         ScrollPane scrollPane = new ScrollPane(productTable);
         scrollPane.setFitToWidth(true);
         scrollPane.setPrefHeight(200);
