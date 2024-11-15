@@ -63,6 +63,7 @@ public class HomeCustomerController {
             loadProductFromDatabase(topProduct, rs1);
             loadProductFromDatabase(randomProduct, rs2);
             setCountCart();
+
         }
     }
 
