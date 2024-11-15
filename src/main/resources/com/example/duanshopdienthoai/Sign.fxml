@@ -8,72 +8,92 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: rgba(214,229,225,0.74);" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanshopdienthoai.Login.SignController">
-    <children>
-        <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="500.0" styleClass="form-container">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="sign" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanshopdienthoai.Login.SignController">
+   <children>
+        <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="500.0" styleClass="form-container" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="100.0">
             <children>
-                <Label prefHeight="73.0" prefWidth="210.0" style="-fx-font-size: 50px ; -fx-text-fill: #000000;" text="Đăng ký">
+                <Label prefHeight="73.0" prefWidth="210.0" text="Đăng ký" textFill="#e9dfdf">
                     <font>
-                        <Font name="System Bold Italic" size="12.0" />
-                    </font></Label>
-                <HBox alignment="CENTER" prefHeight="80.0" prefWidth="900.0">
+                        <Font name="System Bold Italic" size="50.0" />
+                    </font>
+            </Label>
+                <HBox alignment="CENTER" prefHeight="80.0" prefWidth="424.0">
                     <children>
                         <ImageView fitHeight="42.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../Image/avt.jpg" />
+                                <Image url="@./Image/avt.jpg" />
                             </image>
                         </ImageView>
-                        <TextField fx:id="username" maxWidth="250" prefHeight="40.0" prefWidth="200.0" promptText="Nhập tên đăng nhập" style="-fx-background-color: white;">
-                        </TextField>
+                        <TextField fx:id="username" maxWidth="250" prefHeight="40.0" prefWidth="200.0" promptText="Nhập tên đăng nhập" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
                     </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0">
                     <children>
                         <ImageView fitHeight="42.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../Image/pass.jpg" />
+                                <Image url="@./Image/pass.jpg" />
                             </image>
                         </ImageView>
-                        <PasswordField fx:id="password" maxWidth="250" prefHeight="40.0" prefWidth="200.0" promptText="Nhập mật khẩu" style="-fx-background-color: white;" />
+                        <PasswordField fx:id="password" maxWidth="250" prefHeight="40.0" prefWidth="200.0" promptText="Nhập mật khẩu" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </PasswordField>
                     </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0">
                     <children>
                         <ImageView fitHeight="42.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../Image/rePass.jpg" />
+                                <Image url="@./Image/rePass.jpg" />
                             </image>
                         </ImageView>
-                        <PasswordField fx:id="rePassword" maxWidth="250" prefHeight="40.0" prefWidth="200.0" promptText="Nhập lại mật khẩu" style="-fx-background-color: white;" />
+                        <PasswordField fx:id="rePassword" maxWidth="250" prefHeight="40.0" prefWidth="200.0" promptText="Nhập lại mật khẩu" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </PasswordField>
                     </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0">
                     <children>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../Image/phoneSign.jpg" />
+                                <Image url="@./Image/phoneSign.jpg" />
                             </image>
                         </ImageView>
-                        <TextField fx:id="phoneNumber" maxWidth="250" prefHeight="40.0" prefWidth="200.0" promptText="Nhập số điện thoại" style="-fx-background-color: white;">
-                        </TextField>
+                        <TextField fx:id="phoneNumber" maxWidth="250" prefHeight="40.0" prefWidth="200.0" promptText="Nhập số điện thoại" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
                     </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0">
                     <children>
                         <ImageView fitHeight="42.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../Image/diaChi.jpg" />
+                                <Image url="@./Image/diaChi.jpg" />
                             </image>
                         </ImageView>
-                        <TextField fx:id="address" maxWidth="250" prefHeight="40.0" prefWidth="200.0" promptText="Nhập địa chỉ" style="-fx-background-color: white;">
-                        </TextField>
+                        <TextField fx:id="address" maxWidth="250" prefHeight="40.0" prefWidth="200.0" promptText="Nhập địa chỉ" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: white;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
                     </children>
                 </HBox>
-                <Button alignment="CENTER" onAction="#signUp" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: #adc7e7;" text="Đăng ký">
+                <Button alignment="CENTER" onAction="#signUp" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: #d75d2c;" text="Đăng ký" textFill="WHITE">
                     <VBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                     </VBox.margin>
@@ -81,11 +101,12 @@
                         <Font size="16.0" />
                     </font>
                 </Button>
-                <Hyperlink onAction="#showLogin" text="Bạn đã có tài khoản ?">
+                <Hyperlink onAction="#showLogin" text="Bạn đã có tài khoản ?" textFill="#e9dcdc">
                     <font>
                         <Font size="16.0" />
-                    </font></Hyperlink>
+                    </font>
+            </Hyperlink>
             </children>
         </VBox>
-    </children>
-</HBox>
+   </children>
+</AnchorPane>

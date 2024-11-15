@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1040.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanshopdienthoai.Admin.Statistics.StatisticsAdminController">
+    <children>
+        <ScrollPane prefHeight="2000.0" prefWidth="1040.0">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="2000.0" prefWidth="1040.0">
+                    <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="2000.0" prefWidth="995.0" spacing="5.0" AnchorPane.bottomAnchor="-35.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="5.0">
+                            <children>
+                                <Label alignment="CENTER" prefHeight="47.0" prefWidth="995.0" text="Thống kê sản phẩm ">
+                                    <font>
+                                        <Font name="System Bold" size="40.0" />
+                                    </font>
+                                </Label>
+                                <Label prefHeight="0.0" prefWidth="992.0" text="Top 5 sản phẩm bán chạy">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                                <TableView fx:id="topProduct" maxWidth="500.0" prefHeight="150.0" prefWidth="500.0">
+                                    <columns>
+                                        <TableColumn fx:id="rank" style="-fx-alignment: center;" text="Xếp hạng " />
+                                        <TableColumn fx:id="productName" minWidth="0.0" prefWidth="280.0" style="-fx-alignment: center_left;" text="Tên sản phẩm " />
+                                        <TableColumn fx:id="quantity" minWidth="0.0" prefWidth="137.0" style="-fx-alignment: center;" text="Số lượng đã bán" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </VBox>
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>

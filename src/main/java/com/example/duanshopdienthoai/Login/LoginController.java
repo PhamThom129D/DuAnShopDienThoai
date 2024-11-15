@@ -1,7 +1,6 @@
 package com.example.duanshopdienthoai.Login;
 
 import com.example.duanshopdienthoai.DatabaseConnection;
-import com.example.duanshopdienthoai.LoggedInUser;
 import com.example.duanshopdienthoai.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +11,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import static com.example.duanshopdienthoai.ReUse.showAlert;
 
 public class LoginController {
     @FXML
@@ -33,7 +34,7 @@ public class LoginController {
             switch(role) {
                 case "Admin":
                     showAlert("Xin chào Admin " + username );
-                    Main.changeScene("HomeAdmin.fxml");
+                    Main.changeScene("Admin/HomeAdmin.fxml");
                     break;
                 case "User":
                     showAlert("Xin chào nhân viên " + username );
@@ -41,20 +42,19 @@ public class LoginController {
                     break;
                 case "Customer":
                     showAlert("Chào mừng " + username + " tham gia mua sắm!" );
-                    Main.changeScene("HomeCustomer.fxml");
+                    Main.changeScene("Customer/HomeCustomer.fxml");
                     break;
-
             }
         }else{
             System.out.println("Đăng nhập thất bại");
-            showAlert("LoginController Fail");
+            showAlert("Sai mật khẩu hoặc tên đăng nhập!");
             this.username.requestFocus();
         }
     }
 
     private String checkUser(String username, String password) throws SQLException {
         Connection conn = DatabaseConnection.getConnection();
-        String query = "select * from user where username=? and password=?";
+        String query = "select * from user where LOWER(username)=LOWER(?) and password=?";
         try(PreparedStatement ps = conn.prepareStatement(query)){
             ps.setString(1,username);
             ps.setString(2,password);
@@ -64,6 +64,7 @@ public class LoginController {
                 int userID = rs.getInt("userID");
                 if(!state){
                     showAlert("Tài khoản đã bị khóa!");
+                    System.exit(0);
                     return null;
                 }
                 LoggedInUser.login(userID, username);
@@ -82,10 +83,5 @@ public class LoginController {
 
     public void forgetPassword(ActionEvent actionEvent) {
         showAlert("Chờ email phản hồi");
-    }
-    private void showAlert(String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setHeaderText(message);
-        alert.show();
     }
 }

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="417.0" prefWidth="437.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.duanshopdienthoai.Admin.Products.UpdateProductsAdminController">
+    <VBox alignment="CENTER" prefHeight="417.0" prefWidth="437.0" spacing="10.0">
+        <children>
+         <Label alignment="CENTER" prefHeight="17.0" prefWidth="243.0" text="Cập nhật thông tin sản phẩm">
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font>
+         </Label>
+         <ImageView fx:id="productImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <TextField fx:id="productImageUrl" maxWidth="400.0" onKeyReleased="#afterEnterUrl" promptText="Nhập đường dẫn ảnh" />
+            <TextField fx:id="productName" maxWidth="400.0" promptText="Nhập tên sản pẩm" />
+            <TextField fx:id="productPrice" maxWidth="400.0" promptText="Nhập giá sản phẩm" />
+            <TextField fx:id="productQuantity" maxWidth="400.0" promptText="Nhập số lượng sản phẩm" />
+         <TextArea fx:id="productDescription" maxWidth="400.0" prefWidth="369.0" promptText="Nhập mô tả sản phẩm" wrapText="true" />
+            <ChoiceBox fx:id="typeProduct" prefHeight="25.0" prefWidth="125.0" />
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label prefHeight="17.0" prefWidth="137.0" text="Trạng thái" />
+                <RadioButton fx:id="InStock" text="Còn hàng" />
+                <RadioButton fx:id="OutOfStock" text="Hết hàng" />
+            </HBox>
+
+            <Button onAction="#updateProduct" text="Cập nhật" />
+
+        </children>
+    </VBox>
+
+</AnchorPane>

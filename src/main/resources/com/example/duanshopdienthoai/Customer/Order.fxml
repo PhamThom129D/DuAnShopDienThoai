@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" spacing="5.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.duanshopdienthoai.Customer.Order.OrderController">
+   <children>
+      <ButtonBar prefHeight="41.0" prefWidth="1280.0">
+        <buttons>
+          <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#goback" style="-fx-background-color: white;" text="Button">
+               <graphic>
+                  <ImageView fitHeight="50.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@.././Image/thoat.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+        </buttons>
+      </ButtonBar>
+      <Label alignment="CENTER" prefHeight="46.0" prefWidth="1280.0" text="Đơn đặt hàng">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="25.0" prefWidth="151.0" text="Tên Khách Hàng :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="usernameOrder" layoutX="607.0" layoutY="51.0" prefWidth="200.0">
+               <font>
+                  <Font name="System Italic" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="103.0" prefHeight="30.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="25.0" prefWidth="152.0" text="Địa chỉ :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="addressOrder" layoutX="607.0" layoutY="51.0" prefWidth="200.0">
+               <font>
+                  <Font name="System Italic" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="203.0" prefHeight="30.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="25.0" prefWidth="159.0" text="Số điện thoại :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="phonenumberOrder" layoutX="607.0" layoutY="51.0" prefWidth="200.0">
+               <font>
+                  <Font name="System Italic" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="223.0" prefHeight="30.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="25.0" prefWidth="160.0" text="Thời gian đặt hàng :">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="dateOrder" layoutX="607.0" layoutY="51.0" prefWidth="200.0">
+               <font>
+                  <Font name="System Italic" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <TableView fx:id="productInfo" maxWidth="900.0" prefHeight="236.0" prefWidth="900.0">
+        <columns>
+          <TableColumn fx:id="nameProduct" prefWidth="311.33331298828125" text="Tên Sản Phẩm" />
+          <TableColumn fx:id="quantityProduct" minWidth="0.0" prefWidth="184.0" text="Số Lượng" />
+            <TableColumn fx:id="priceProduct" prefWidth="212.0" text="Giá Tiền" />
+            <TableColumn fx:id="amountProduct" prefWidth="191.3333740234375" text="Thành Tiền" />
+        </columns>
+      </TableView>
+      <VBox alignment="CENTER" prefHeight="141.0" prefWidth="1280.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="47.0" prefWidth="1280.0">
+               <children>
+                  <Label prefHeight="47.0" prefWidth="181.0" text="Tổng tiền :">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="totalPrice" layoutX="10.0" layoutY="10.0" prefHeight="41.0" prefWidth="327.0" text="0 vnđ">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font></Label>
+               </children>
+            </HBox>
+            <Label text="Phương thức thanh toán ">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="paymentType" prefHeight="25.0" prefWidth="150.0" />
+            <Button mnemonicParsing="false" onAction="#confirmOrder" prefHeight="40.0" prefWidth="185.0" text="Xác nhận đơn hàng">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin></Button>
+         </children>
+      </VBox>
+   </children>
+</VBox>
