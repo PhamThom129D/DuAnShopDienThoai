@@ -3,6 +3,7 @@ package com.example.duanshopdienthoai.Admin.Customer;
 import com.example.duanshopdienthoai.DatabaseConnection;
 import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.ToggleGroup;
@@ -19,7 +20,7 @@ public class UpdateCustomerAdminController {
     @FXML
     private TextField customerPasswordField;
     @FXML
-    private TextField customerAddressField;
+    private TextArea customerAddressField;
     @FXML
     private TextField customerPhoneField;
     @FXML
