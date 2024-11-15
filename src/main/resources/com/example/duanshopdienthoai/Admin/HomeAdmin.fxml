@@ -14,14 +14,14 @@
    <children>
       <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
          <left>
-            <VBox alignment="TOP_CENTER" prefHeight="845.0" prefWidth="219.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+            <VBox alignment="TOP_CENTER" prefHeight="845.0" prefWidth="219.0" style="-fx-background-color: #7f90ed;" BorderPane.alignment="CENTER">
                <children>
                   <ImageView fitHeight="180.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@.././Image/Banner.png" />
                      </image>
                   </ImageView>
-                  <Button mnemonicParsing="false" onAction="#showCustomer" prefHeight="70.0" prefWidth="350.0" style="-fx-background-color: white;" text="Khách Hàng">
+                  <Button mnemonicParsing="false" onAction="#showCustomer" prefHeight="70.0" prefWidth="350.0" style="-fx-background-color: transparent;" text="Khách Hàng">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -36,7 +36,7 @@
                         <Insets top="30.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#showProducts" prefHeight="70.0" prefWidth="307.0" style="-fx-background-color: white;" text="Sản phẩm">
+                  <Button mnemonicParsing="false" onAction="#showProducts" prefHeight="70.0" prefWidth="307.0" style="-fx-background-color: transparent;" text="Sản phẩm">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -51,7 +51,7 @@
                         <Insets top="5.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#showInvoice" prefHeight="70.0" prefWidth="307.0" style="-fx-background-color: white;" text="Đơn Hàng">
+                  <Button mnemonicParsing="false" onAction="#showInvoice" prefHeight="70.0" prefWidth="307.0" style="-fx-background-color: transparent;" text="Đơn Hàng" textFill="#0000009e">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -66,7 +66,7 @@
                         <Insets top="5.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#showStatistics" prefHeight="70.0" prefWidth="307.0" style="-fx-background-color: white;" text="Thống Kê">
+                  <Button mnemonicParsing="false" onAction="#showStatistics" prefHeight="70.0" prefWidth="307.0" style="-fx-background-color: transparent;" text="Thống Kê">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -81,7 +81,7 @@
                         <Insets top="5.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#goBack" prefHeight="70.0" prefWidth="350.0" style="-fx-background-color: white;" text="Đăng Xuất">
+                  <Button mnemonicParsing="false" onAction="#goBack" prefHeight="70.0" prefWidth="350.0" style="-fx-background-color: transparent;" text="Đăng Xuất">
                      <graphic>
                         <ImageView fitHeight="55.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -102,7 +102,14 @@
          <center>
             <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
               <content>
-                <AnchorPane fx:id="contentAdmin" minHeight="0.0" minWidth="0.0" prefHeight="800.0" prefWidth="970.0" />
+                <AnchorPane fx:id="contentAdmin" minHeight="0.0" minWidth="0.0" prefHeight="800.0" prefWidth="1042.0" style="-fx-background-image: url(&quot;https://i.pinimg.com/736x/22/c6/45/22c6450e6b9e896ff8f6cf237ec2e79e.jpg&quot;);">
+                     <children>
+                        <ImageView fitHeight="226.0" fitWidth="684.0" layoutX="166.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="166.0" AnchorPane.rightAnchor="192.0">
+                           <image>
+                              <Image url="@../Image/welcome.png" />
+                           </image>
+                        </ImageView>
+                     </children></AnchorPane>
               </content>
             </ScrollPane>
          </center>

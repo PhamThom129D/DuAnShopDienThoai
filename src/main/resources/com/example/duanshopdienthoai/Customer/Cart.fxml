@@ -31,7 +31,7 @@
     <HBox alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="61.0" prefWidth="1280.0" spacing="10">
         <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="29.0" prefWidth="1198.0">
             <children>
-                <Label text="Tổng thanh toán :  ">
+                <Label text="Tổng thanh toán :  " wrapText="true">
                     <HBox.margin>
                         <Insets right="5.0" />
                     </HBox.margin>
